@@ -1,0 +1,23 @@
+<div class="authentication-pages"  *ngIf="formLayoutData">
+  <div>
+    <div class="header-custom-css" *ngIf="showHeaderText">
+      <h1 class="header-theme">Let's Get Started</h1>
+    </div>
+    <div class="cursor--pointer poweredby-logo" [class.noHeight]="noHeight" id="homepage"
+      (click)="navigateToLoginPage()">
+      <img src="assets/images/pngs/logo.png" alt="Onemoney - Logo" class="logo-format" />
+    </div>
+  </div>
+  <div class="user-forms-section">    
+    <div class="right-side-section">
+      <div class="form-layout form-content" *ngIf="formLayoutData && formLayoutData.formType">
+        <div [ngSwitch]="formLayoutData.formType">
+          <!-- <app-login *ngSwitchCase="'login'"></app-login>                 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- <app-aahandle *ngIf="!formLayoutData && showAaHandle"></app-aahandle>  
+<app-signup *ngIf="!formLayoutData && !showAaHandle"></app-signup> -->

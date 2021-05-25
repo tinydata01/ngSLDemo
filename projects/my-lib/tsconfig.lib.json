@@ -9,7 +9,15 @@
     "lib": [
       "dom",
       "es2018"
-    ]
+    ],
+    "paths": {
+      "rxjs": [
+        "node_modules/rxjs"
+      ],
+      "rxjs/*": [
+        "node_modules/rxjs/*"
+      ]
+  }
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,

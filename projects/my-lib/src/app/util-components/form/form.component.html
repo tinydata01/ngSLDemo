@@ -1,0 +1,226 @@
+<!-- This image is loaded as dummy so as to remove the image load time during checking the checkbox for first time -->
+<img style="position: absolute;top: 0;left: 0;z-index: -9999;visibility: hidden;"
+  src="assets/images/svgs/account-link-check-box-checked.svg" alt="Account Link Checked">
+
+<form [formGroup]="formGroup">
+  <div *ngIf="!isDiscovery">
+    <div class="form__field--parent--container" *ngFor="let field of formInputs">
+      <div [ngSwitch]="field.controlType">
+       
+        <div *ngSwitchCase="'inputVuaText'" class="form-field">
+          <div class="d-flex">
+            <div class="mt-5">{{'app.yourrecommendedid'| translate}} </div>
+            <img src="assets/images/svgs/success.svg" alt="Success Sign"class="pl-10" />
+          </div>
+          <div>{{field.label | translate}}</div>
+          <div class="vua-label">
+            
+            <input *ngIf="!field.digitOnly" class="text-input" [type]="field.type" id="text-pin"
+              [attr.maxLength]="field.maxLength" [formControlName]="field.key" [ngClass]="{ disable: !field.editable }"
+              value="{{ field.value }}" [placeholder]="('app.'+field.placeholder | translate)" [autofocus]="field.focus"
+              (blur)="trimStartAndTerminatingSpaces($event,field.label)" />@onemoney
+            <img class="input-lable-image" src="assets/images/svgs/{{
+              field.labelImage }}.svg" *ngIf="field.labelImage" alt="Load Image" />
+          </div>
+          <div>
+            <div *ngIf="!(formGroup.controls[field.key].value?.length >= 1) && formGroup.controls[field.key].touched 
+                  !formSubmitAttempt" class="error-msg">
+              {{ "app."+field.emptyValueMessage | translate}}
+            </div>
+          </div>
+          <div *ngIf="formGroup.controls[field.key].value  &&
+                isInvalid(formGroup.controls[field.key], formSubmitAttempt)" class="error-msg">
+            {{ "app."+field.validationValue | translate }}
+          </div>
+        </div>
+        <div *ngSwitchCase="'inputText'" class="form-field">
+          <span>{{field.label | translate}}</span>
+          <input *ngIf="field.digitOnly" appDigitonly class="text-input text-input-width" [type]="field.type"
+            id="text-mobileno" [attr.maxLength]="field.maxLength" [formControlName]="field.key"
+            [ngClass]="{ disable: !field.editable }" value="{{ field.value }}"
+            [placeholder]="('app.'+field.placeholder | translate)" [autofocus]="field.focus" />
+          <input *ngIf="!field.digitOnly" class="text-input" [type]="field.type" id="text-pin"
+            [attr.maxLength]="field.maxLength" [formControlName]="field.key" [ngClass]="{ disable: !field.editable }"
+            value="{{ field.value }}" [placeholder]="('app.'+field.placeholder | translate)" [autofocus]="field.focus"
+            (blur)="trimStartAndTerminatingSpaces($event,field.label)" />
+          <!-- <img class="input-lable-image" src="assets/images/svgs/{{
+            field.labelImage }}.svg" *ngIf="field.labelImage" alt="Load Image" /> -->
+          <div *ngIf="field.updateOn == 'blur'">
+            <div
+              *ngIf="(!formGroup.controls[field.key].value) && formGroup.controls[field.key].touched && !formSubmitAttempt"
+              class="error-msg">
+              {{ "app."+field.emptyValueMessage | translate }}
+            </div>
+            <div
+              *ngIf="formGroup.controls[field.key].value && formGroup.controls[field.key].status == 'INVALID' && !formSubmitAttempt && formGroup.controls[field.key].touched"
+              class="error-msg">
+              {{ "app."+field.validationValue | translate }}
+            </div>
+          </div>
+          <div>
+            <div *ngIf="(!formGroup.controls[field.key].value) &&
+                  formSubmitAttempt" class="error-msg">
+              {{ "app."+field.emptyValueMessage | translate }}
+            </div>
+          </div>
+          <div *ngIf="formGroup.controls[field.key].value &&
+            isInvalid(formGroup.controls[field.key], formSubmitAttempt)" class="error-msg">
+
+            {{ "app."+field.validationValue | translate }}
+          </div>
+          <div class="help__text" *ngIf="field.helpText">{{ "app."+field.helpText | translate }}</div>
+        </div>
+        <div *ngSwitchCase="'otp'" class="form-field">
+          <div *ngIf="field.showLabel" class="account__identifier-left-label pb-20">{{ "app."+field.label | translate }}
+          </div>
+          <div class="otp__field">
+            <img *ngIf="field.labelImage" class="account__identifier-left-label pb-20" src="assets/images/svgs/{{
+            field.labelImage}}.svg" alt="Load Image">
+            <app-custom-otp class="text-input p-0 otp__input" [formControlName]="field.key"
+              [ngClass]="{ disable: !field.editable }" value="{{ field.value }}"
+              [isPassword]="field.category && field.category == 'password'"></app-custom-otp>
+            <img class="lock__img cursor--pointer" src="assets/images/svgs/{{field.imagePassword}}.svg" id="close-eye"
+              (click)="toggleEye(field)" alt="Hide-Show Password">
+          </div>
+          <div class="forgot-pin-text websdk-customcss-link" id="form-forgotpin"
+            *ngIf="field.forgotPin && !hideForgotPin" (click)="gotoForgotPin()">
+            {{ 'app.forgotPIN' | translate }}
+          </div>
+          <div *ngIf="(!formGroup.controls[field.key].value) &&
+            formSubmitAttempt" class="error-msg">
+            {{ "app."+field.emptyValueMessage | translate }}
+          </div>
+          <div *ngIf="formGroup.controls[field.key].value &&
+            isInvalid(formGroup.controls[field.key], formSubmitAttempt)" class="error-msg">
+            {{ "app."+field.validationValue | translate }}
+          </div>
+        </div>
+        <div *ngSwitchCase="'inputTextWithLeftLabel'" class="form-field">
+          <div class="account__identifier-left-label pb-20">
+            {{ "app."+field.label | translate }}
+          </div>
+          <input class="text-input p-0" [type]="field.type" [attr.maxLength]="field.maxLength" id="error"
+            [formControlName]="field.key" [ngClass]="{ disable: !field.editable }" value="{{ field.value }}"
+            [placeholder]="('app.'+field.placeholder | translate)" />
+          <div *ngIf="(!formGroup.controls[field.key].value) &&
+            formSubmitAttempt" class="error-msg">
+            {{ "app."+field.emptyValueMessage | translate }}
+          </div>
+          <div *ngIf="formGroup.controls[field.key].value &&
+            isInvalid(formGroup.controls[field.key], formSubmitAttempt)" class="error-msg">
+            {{ "app."+field.validationValue | translate }}
+          </div>
+          <img class="password-hide-image" id="form-closeeye" src="assets/images/svgs/{{
+            field.imagePassword }}.svg" (click)="togglePassword(field)" *ngIf="field.isInnerFormPassword"
+            alt="Show-Hide Password" />
+        </div>
+        <!-- <div *ngSwitchCase="'inputTextPassword'" class="form-field">
+          <input class="text-input" [attr.disabled]="field.disabled" [ngClass]="{}" [type]="field.type" id="form-text"
+            [attr.maxLength]="field.maxLength" [formControlName]="field.key"
+            [placeholder]="('app.'+field.placeholder | translate)" />
+          <img class="input-lable-image" src="assets/images/svgs/{{
+            field.labelImage }}.svg" alt="Load Image" />
+          <div *ngIf="!formGroup.controls[field.key].value && formSubmitAttempt" class="error-msg">
+            {{ "app."+field.emptyValueMessage | translate }}
+          </div>
+          <div *ngIf="formGroup.controls[field.key].value &&
+            isInvalid(formGroup.controls[field.key], formSubmitAttempt)" class="error-msg">
+            {{ "app."+field.validationValue | translate }}
+          </div>
+          <img class="password-hide-image" src="assets/images/svgs/{{
+            field.imagePassword }}.svg" (click)="togglePassword(field)" id="password-image" alt="Show-Hide Password" />
+          <div class="forgot-pin-text" *ngIf="field.key == 'password'" id="forgot-pin-password"
+            (click)="gotoForgotPin()">
+            {{ 'app.forgotPIN' | translate }}
+          </div>
+        </div> -->
+        <select *ngSwitchCase="'dropdown'" [formControlName]="field.key" id="textoption">
+          <option *ngFor="let option of field.value">{{ option }}</option>
+        </select>
+
+        <label *ngSwitchCase="'checkbox'" class="form-field checkbox">
+          <input type="checkbox" [formControlName]="field.key" id="text-checkbox" />
+          <span class="checkbox__image" [class.specific__width--checkbox]="field.key == 'acceptTerms'"></span>
+          <span *ngIf="field.key == 'acceptHDFCTerms'">{{ 'app.hdfcprivacypolicy' | translate : { companyName: bankName } }}
+            <br />
+           
+          </span>
+          
+          <span *ngIf="field.key !== 'acceptTerms' && field.key !== 'acceptHDFCTerms'">{{ "app."+field.label | translate
+            }}</span>
+            <br/>
+          <span *ngIf="field.key == 'acceptTerms'">{{ 'app.iAgreeToOnemoney' | translate }}
+            <a class="form__terms-and-conditions-text websdk-customcss-link" id="oneLink"
+              href="https://www.onemoney.in/tandc.html" target="_blank" rel="noopener noreferrer">
+              {{ 'app.termsAndConditions' | translate }}
+            </a>
+          </span>
+          <div *ngIf="isInvalid(formGroup.controls[field.key],
+            formSubmitAttempt)" class="error-msg terms-error-msg">
+            {{ "app."+field.emptyValueMessage | translate }}
+          </div>
+        </label>
+        <div *ngSwitchCase="'submitButton'">
+          <button class="primary-button button--full__width websdk-customcss-button custom-css-btn" id="submit"
+            (click)="field.callback($event)" [type]="field.type">
+            {{ "app."+field.label | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="discover__accounts__list__validateing-form-section" *ngIf="isDiscovery">
+    <div class="discover__accounts__list__validateing" *ngFor="let field of
+      formInputs; let i=index;">
+      <div [ngSwitch]="field.controlType">
+        <div class="account_list-input" *ngSwitchCase="'inputTextWithLeftLabel'" [ngClass]="{
+          'input-non-editable': !field.editable }">
+          <div class="account__identifier-left-label" *ngIf=field.editable>
+            {{ 'app.enterYourValue' | translate: {value: field.label } }}
+          </div>
+          <div class="account__identifier-left-label" *ngIf=!field.editable>
+            {{ "app."+field.label | translate }}
+          </div>
+          <input *ngIf="field.digitOnly" id="form-fielddigit" appDigitonly [type]="field.type"
+            class="account__identifier-input" [formControlName]="field.key"
+            [ngClass]="{ 'input-non-editable': !field.editable }" />
+          <input *ngIf="!field.digitOnly" id="text-digit" [type]="field.type" class="account__identifier-input"
+            [formControlName]="field.key" [ngClass]="{ 'input-non-editable': !field.editable }" />
+          <div *ngIf="!formGroup.controls[field.key].value && formSubmitAttempt" class="error-msg">
+            {{ "app."+field.emptyValueMessage | translate }}
+          </div>
+          <div *ngIf="field.updateOn == 'blur'">
+            <div *ngIf="formGroup.controls[field.key].value &&
+              isInvalid(formGroup.controls[field.key], formSubmitAttempt)" class="error-msg">
+              {{ 'app.typeValidMobile' | translate: {value: field.validationValue } }}
+            </div>
+          </div>
+          <div *ngIf="field.updateOn != 'blur'">
+            <div *ngIf="formGroup.controls[field.key].value &&
+              isInvalid(formGroup.controls[field.key], formSubmitAttempt)" class="error-msg">
+              {{ 'app.validationValueengthDigitValue' | translate: {validationValue: field.validationValue, length:
+              field.length } }}
+            </div>
+          </div>
+        </div>
+        <div class="button-section" *ngSwitchCase="'submitButton'">
+          <button class="discover__link-cancel websdk-customcss-cancel" id="discover" (click)="field.callback($event)"
+            [type]="field.type" [ngClass]="{ 'discover__link-submit': field.label == 'Send OTP' }">
+            {{ "app."+field.label | translate }}
+          </button>
+        </div>
+        <label *ngSwitchCase="'checkbox'" class="form-field checkbox d-flex"
+          [ngClass]="{ 'input-non-editable': !field.editable }">
+          <input class="accounts__checkbox" id="account-{{i}}" type="checkbox" [formControlName]="field.key" />
+          <span class="checkbox__image"></span>
+          <div [class.highLightAccount]="highlightLinkedAccounts">
+            <div>
+              {{ "app."+ field.label | translate }}
+            </div>
+            <div>{{ field.id ? field.id : field.key }}</div>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+</form>

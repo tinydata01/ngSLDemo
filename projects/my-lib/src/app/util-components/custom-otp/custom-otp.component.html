@@ -1,0 +1,8 @@
+<section class="custom-otp">
+    <div class="otp-container center">
+        <input inputmode="decimal" *ngFor="let i of values; let ind = index; trackBy: indexTracker" id="custom-otpnumber{{ind}}" class="otp-input" [type]="'text'" autocomplete="new-password" appDigitonly=1 [(ngModel)]="values[ind]" (keydown)="keyuped($event)" (keyup)="keyUp($event)" (input)="changed($event, ind)" />
+    </div>
+        <!-- <div class="otp-container" *ngIf="isPassword">
+        <input inputmode="decimal" [class.password__field]="isPassword"  *ngFor="let i of values; let ind = index; trackBy: indexTracker" id="enterotp{{ind}}" class="otp-input" [type]="isPassword ? 'text' :  'text'" appDigitonly=1 autocomplete="new-password" [(ngModel)]="demoValues[ind]" (keydown)="keyuped($event)" (keyup)="keyUp($event)" (input)="changed($event, ind)" />
+    </div> -->
+</section>

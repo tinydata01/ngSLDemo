@@ -1,0 +1,257 @@
+.onemoney-logo {
+  position: absolute;
+  top: 40px;
+  left: 36px;
+  @media (max-width : 360px){
+    left:15px;
+  }
+
+  img {
+    width: 150px;
+    @media (max-width : 360px){
+      width:120px;
+    }
+
+  }
+}
+
+.right-side-section {
+  max-width: 652px;
+  min-width: 558px;
+//   width: 100%;
+ @media (max-width : 767px){
+    min-width: 278px;
+ }
+}
+
+.user-forms-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  //   padding-right: 170px;
+  margin-top: 45px;
+  // padding-right: 150px;
+}
+
+.form-layout {
+  width: auto;
+  height: 512px;
+  padding: 30px 40px 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 1px rgba(166, 158, 166, 1);
+}
+
+
+.infografic-section {
+  padding-right: 85px;
+}
+
+.welcome-onemoney-note {
+  color: #f26c63;
+  font-size: 24px;
+}
+
+.welcome-desc {
+  max-width: 284px;
+  font-size: 22px;
+  color: #acacac;
+}
+
+.authentication-pages{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media  (max-width: 1200px){
+  .user-forms-section{
+    padding:0 30px;
+  }
+  .infografic-section{
+    padding-right: 10px;
+  }
+}
+
+@media (max-width:767px){
+  .infografic-section{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-layout{
+    box-shadow: none;
+    height: auto;
+    padding:0;
+    padding-top: 40px;
+  } 
+  .user-forms-section{
+    justify-content: center;
+    flex-direction: column;
+    padding:0;
+    margin-top:50px;  
+  }
+  
+  .onemoney-logo{
+    top: 10px;
+  }
+  .form-heading{
+    padding-bottom: 55px;    
+  }
+  .authentication-pages{
+    display: block;
+  }
+}
+
+.infographic-image{
+  width:80%;
+}
+
+.noHeight {
+  height: 0;
+  overflow: hidden;
+}
+
+//Added Chaithu
+.lang{
+    position: absolute;
+    top: 54px;
+    right: 7px;
+    font: icon;
+    font-weight: bold;
+    width: 151px;
+    cursor: pointer;
+  @media (max-width:475px){
+    top:17px;
+    // right:11px;
+    right:-2px;
+  }
+   @media screen and (min-width: 475px) {
+    z-index: 9999;
+    position: absolute;
+    top:26px;
+    float: right;
+    right: 29px;
+  }
+  @media only screen and (min-device-width: 767px) and (max-device-width: 998px) {
+    position: absolute;
+    // top:51px;
+    top:57px;
+    float: left;
+    left: 200px;
+  }
+  @media (min-width:999px){
+    position: absolute;
+    top:63px;
+    //top:18px;
+    float: right;
+    right: 0px;
+  }
+}
+.downArrow{
+//  margin-left: 13px;
+margin-left: -23px;
+ @media (max-width:767px){
+  bottom: 7px;
+  left: 90px;
+ }
+}
+.Language{
+//  margin-left: 12px;
+margin-left: 10px;
+ width: 90px;
+ @media (max-width:767px){
+  bottom:-10px;
+ }
+}
+.lang-item{
+ height: 40px;
+ border-bottom: 1px solid #e7e7e7;
+ display: flex;
+ align-items: center;
+ padding: 0 10px;
+ justify-content: space-between;
+ cursor: pointer;
+//  margin-top:15px;
+}
+
+
+.header__profile--section {
+  z-index: 9999;
+  background: #fff;
+ // border: 1px solid lightgray;
+ // border-top: 0px;
+}
+.lang-item:last-child {
+  margin-top: 0px;
+}
+.langimg{
+  float:left;
+}
+.languages{
+  width: 104px;
+  display: inline-flex;
+}
+.lang-icon{
+  position: absolute;
+  // top: 4px;
+  // left: -31px;
+  top:-13px;
+  left:-33px;
+}
+.icon{
+  left:1px;
+}
+
+.infographic-video-section {
+  display: flex;
+  .video {
+    margin: 0;
+  }
+  @media (max-width:1024px){
+    .video {
+      position: absolute;
+      margin: 0px 180px;
+    }
+  }
+
+  @media (max-width:767px){
+    flex-direction: column;
+    .video {
+      position: relative;
+      margin: 0;
+    }
+  }
+}
+.poweredby-logo {
+  top: 100px;
+}
+.form-content{
+  padding: 80px 70px 30px 80px;
+  border-radius: 0px;
+  box-shadow: 0px 0px 2px 0px;
+  height: 350px;
+}
+.authentication-pages{
+  padding:40px 0px!important;
+}
+.header-custom-css{
+  position: absolute;
+  margin-top: -215px;
+}
+
+@media (max-width:767px){
+  .form-content {
+    padding: 50px 30px 20px 20px;
+    box-shadow: none;
+    max-width: 400px;
+    }
+   .authentication-pages{
+      padding:5px 0px!important;
+  }
+  .header-custom-css{
+    margin-top: 33px;
+    margin-left: 5px;
+  }
+}

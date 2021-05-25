@@ -1,0 +1,97 @@
+.mobile-number {
+    font-size: 20px;
+    color: $primaryTextColor;
+    line-height: 22px;
+  }
+  
+  .edit-mobile-number-text {
+    display: flex;
+    font-size: 14px;
+    color: #101010;
+    padding-top: 5px;
+    align-items: flex-end;
+  }
+
+  .disable{
+      pointer-events: none;
+  }
+
+  .action__btn {
+    padding: 5px 10px;
+    border: 1px solid #079AFF;
+    color: #079AFF;
+    background: transparent;
+    border-radius: 9999px;
+    margin-right: 20px;
+  }
+
+.dashboard__infographic {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.nodata__card {
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view__all {
+  display: inline-block;
+  color: #079AFF;
+  cursor: pointer;
+  margin-bottom: -1px;
+  &:hover {
+    border-bottom: 1px solid #079AFF;
+  }
+}
+
+.small__tooltip {
+  position: absolute;
+  top: -100%;
+  left: 0;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  animation: rotating 2s linear infinite;
+}
+
+.error-msg {
+  font-size: 14px;
+  color: #f26c63;
+}
+.poweredby-logo{
+  position: absolute;
+  right: 0;
+  top: 0;
+
+}
+.logo-format{
+  width: 50%;
+  float: right;
+}
+.main-header__logo{
+  background: #005b9f;
+  height:75px;
+}
+.hdfc-logo{
+  padding: 20px 0px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block; 
+  height: 75px; 
+}
+.header-theme{
+  color:#005b9f;
+}

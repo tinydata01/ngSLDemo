@@ -1,0 +1,5 @@
+{
+    "bankName": "HDFC",
+    "bankLogo": "assets/images/pngs/HDFC-logo.png",
+    "finproURL":"https://uat.moneyone.in/finpro_uat/v2/requestconsent"
+}

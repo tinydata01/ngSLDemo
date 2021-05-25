@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="12px" viewBox="0 0 15 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Path</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Linked-accounts" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="account-linked-copy" transform="translate(-265.000000, -454.000000)" fill="#FFFFFF" fill-rule="nonzero" stroke="#FFFFFF">
+            <g id="success" transform="translate(260.000000, 448.000000)">
+                <path d="M18.2297867,7.30307942 L11.0421297,15.5362173 L6.71195102,12.0091582 C6.51085189,11.8448764 6.21575061,11.8786851 6.05487131,12.0834421 C5.89352434,12.2891515 5.9262614,12.5886682 6.1278282,12.75295 L10.8045521,16.5623834 C10.8906038,16.6323818 10.9939594,16.6666667 11.0968474,16.6666667 C11.2259249,16.6666667 11.3545349,16.6123822 11.4466663,16.5066705 L18.9294246,7.93544536 C19.1010604,7.73925954 19.0837565,7.43783812 18.8906078,7.26355655 C18.6969914,7.08832261 18.4018901,7.10594124 18.2297867,7.30307942 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

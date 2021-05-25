@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="inherit" height="inherit" viewBox="0 0 24 24">
+  <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1 0 0 -1 .5 23)">
+    <ellipse cx="11.5" cy="11" fill="#079AFF" stroke="#079AFF" rx="11.5" ry="11"/>
+    <line x1="11.5" x2="11.5" y1="6.6" y2="16" stroke="#FFF"/>
+    <line x1="6.586" x2="17.459" y1="11.3" y2="11.3" stroke="#FFF"/>
+  </g>
+</svg>

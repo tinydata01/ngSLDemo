@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="43px" viewBox="0 -3 80 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>link-account</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Linked-accounts" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="account-linked1-copy" transform="translate(-21.000000, -201.000000)">
+            <g id="link-account" transform="translate(21.000000, 201.000000)">
+                <polygon id="Line-5" fill="#979797" fill-rule="nonzero" opacity="0.300000012" points="0 3 15 3 15 2 0 2"></polygon>
+                <polygon id="Line-5" fill="#979797" fill-rule="nonzero" opacity="0.200000003" points="11 6 15 6 15 5 11 5"></polygon>
+                <polygon id="Line-6" fill="#979797" fill-rule="nonzero" opacity="0.200000003" points="64 33 80 33 80 32 64 32"></polygon>
+                <polygon id="Line-6" fill="#979797" fill-rule="nonzero" opacity="0.5" points="64 37 69 37 69 36 64 36"></polygon>
+                <g id="bank-accounts" transform="translate(15.000000, 0.000000)">
+                    <path d="M0.767715671,12.3116883 L1,12.3116883 L1,12.4293244 L0.542829097,12.7248149 L0.767715671,12.3116883 Z M1.18200181,12.3116883 L37.8202445,12.3116883 L20.3808284,1 L18.6829876,1 L1.18200181,12.3116883 Z M38,12.3116883 L38.2318398,12.3116883 L38.4558213,12.723941 L38,12.4282827 L38,12.3116883 Z" id="Path-4" stroke="#ACACAC" stroke-width="2" fill="#FFFFFF"></path>
+                    <polygon id="Path-5" fill="#FAB909" fill-rule="nonzero" points="0 18.1038961 39 18.1038961 39 17.038961 0 17.038961"></polygon>
+                    <polygon id="Path-6" fill="#ACACAC" fill-rule="nonzero" points="5.34246575 18.1038961 5.34246575 33.012987 6.4109589 33.012987 6.4109589 18.1038961"></polygon>
+                    <polygon id="Path-6" fill="#ACACAC" fill-rule="nonzero" points="12.2876712 18.1038961 12.2876712 33.012987 13.3561644 33.012987 13.3561644 18.1038961"></polygon>
+                    <polygon id="Path-6" fill="#ACACAC" fill-rule="nonzero" points="18.6986301 18.1038961 18.6986301 33.012987 19.7671233 33.012987 19.7671233 18.1038961"></polygon>
+                    <polygon id="Path-6" fill="#ACACAC" fill-rule="nonzero" points="25.6438356 18.1038961 25.6438356 33.012987 26.7123288 33.012987 26.7123288 18.1038961"></polygon>
+                    <path d="M26.712,31.9480519 L26.712,33.0120519 L1.06849315,33.012987 L1.06849315,39.9350649 L26.712,39.9350519 L26.712,40.9990519 L0,41 L0,31.9480519 L26.712,31.9480519 Z" id="Combined-Shape" fill="#ACACAC" fill-rule="nonzero"></path>
+                </g>
+                <g id="broken-link-(1)" transform="translate(45.000000, 22.000000)" stroke="#F26C63" stroke-linecap="round" stroke-width="1.5">
+                    <path d="M8.4558793,4.66137994 L11.9227495,1.20598617 C13.5362472,-0.401995391 16.176379,-0.401995391 17.7898767,1.20598617 L17.7898767,1.20598617 C19.4033744,2.81396774 19.4033744,5.44507362 17.7898767,7.05305519 L13.2560161,11.5717916 C11.6425184,13.1797732 9.00238659,13.1797732 7.38888889,11.5717916 L7.38888889,11.5717916" id="Path"></path>
+                    <path d="M10.2461199,15.7826462 L7.24360239,18.768363 C5.59217917,20.4105457 2.88999064,20.4105457 1.23856742,18.768363 L1.23856742,18.768363 C-0.412855805,17.1261804 -0.412855805,14.439112 1.23856742,12.7969294 L5.60607614,8.4538592 C7.25749936,6.81167656 9.95968789,6.81167656 11.6111111,8.4538592 L11.6111111,8.4538592" id="Path"></path>
+                    <line x1="11.875" y1="16.6666667" x2="11.875" y2="19.4444444" id="Path"></line>
+                    <line x1="13.7222222" y1="16.6666667" x2="15.3055556" y2="18.3333333" id="Path"></line>
+                    <line x1="14.25" y1="15.2777778" x2="16.8888889" y2="15.2777778" id="Path"></line>
+                    <line x1="5.54166667" y1="3.88888889" x2="5.54166667" y2="1.11111111" id="Path"></line>
+                    <line x1="3.69444444" y1="3.88888889" x2="2.11111111" y2="2.22222222" id="Path"></line>
+                    <line x1="3.69444444" y1="5.83333333" x2="1.05555556" y2="5.83333333" id="Path"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

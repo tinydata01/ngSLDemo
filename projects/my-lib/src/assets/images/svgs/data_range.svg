@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46" height="50" viewBox="0 0 46 50">
+  <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+    <ellipse cx="7.333" cy="26.087" stroke="#F26C63" stroke-width=".8" rx="2.743" ry="2.73"/>
+    <ellipse cx="22" cy="34.435" stroke="#F26C63" stroke-width=".8" rx="2.743" ry="2.73"/>
+    <line x1="10.482" x2="38.847" y1="24.929" y2="27.981" stroke="#F26C63" stroke-linecap="square" stroke-width=".8" transform="rotate(-6 24.665 26.455)"/>
+    <line x1="5.33" x2="38.67" y1="41.031" y2="44.535" stroke="#FAB909" stroke-linecap="square" stroke-width=".8" transform="rotate(-6 22 42.783)"/>
+    <line x1="6.286" x2="18.657" y1="33.731" y2="35.139" stroke="#F26C63" stroke-linecap="square" stroke-width=".8" transform="rotate(-6 12.471 34.435)"/>
+    <g stroke="#ACACAC" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="44" height="43.2" y="4.8" rx="2"/>
+      <line x1="31.778" x2="31.778" y2="9.6"/>
+      <line x1="12.222" x2="12.222" y2="9.6"/>
+      <line x2="44" y1="19.2" y2="19.2"/>
+    </g>
+  </g>
+</svg>

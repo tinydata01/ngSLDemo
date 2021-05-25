@@ -1,0 +1,25 @@
+.logoutBtn{    
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: white;
+    padding: 10px;
+}
+.logout-icon{
+    width: 37px;
+    margin-top: -8px;
+}
+.visibility-hidden{
+    visibility: hidden;
+}
+@media(max-width:767px){
+    .logout-icon{
+        width: 32px;
+    }
+    .logoutBtn{
+        font-size: 15px;
+    }
+}

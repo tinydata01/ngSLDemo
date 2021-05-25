@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="55" height="53" viewBox="0 0 55 53">
+  <g fill="none" fill-rule="evenodd" stroke="#079AFF" stroke-linecap="round" stroke-width="2" transform="translate(1 1)">
+    <line x1="26.5" x2="26.5" y1="37" y2="51"/>
+    <line x1="26.5" x2="26.5" y2="14"/>
+    <line x1="13.274" x2="13.209" y1="31.671" y2="45.242" transform="rotate(45 13.242 38.457)"/>
+    <line x1="7.5" x2="7.5" y1="18" y2="32" transform="rotate(90 7.5 25)"/>
+    <line x1="45.5" x2="45.5" y1="18" y2="32" transform="rotate(90 45.5 25)"/>
+    <line x1="13.443" x2="13.508" y1="5.181" y2="18.75" transform="rotate(136 13.475 11.966)"/>
+    <line x1="39.492" x2="39.557" y1="31.899" y2="45.468" transform="rotate(136 39.525 38.684)"/>
+  </g>
+</svg>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   sodipodi:docname="delink-small-for-menu.svg"
+   id="svg24"
+   version="1.1"
+   viewBox="0 0 33.996422 32.163723"
+   height="32.163723"
+   width="33.996422">
+  <metadata
+     id="metadata30">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>delink</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs28" />
+  <sodipodi:namedview
+     inkscape:current-layer="svg24"
+     inkscape:window-maximized="0"
+     inkscape:window-y="23"
+     inkscape:window-x="0"
+     inkscape:cy="23.993197"
+     inkscape:cx="-0.98460935"
+     inkscape:zoom="6.4433117"
+     showgrid="false"
+     id="namedview26"
+     inkscape:window-height="802"
+     inkscape:window-width="1440"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+  <title
+     id="title10">delink</title>
+  <desc
+     id="desc12">Created with Sketch.</desc>
+  <g
+     transform="matrix(1.7892853,0,0,1.7868743,-0.89464265,-0.8934521)"
+     fill-rule="evenodd"
+     fill="none"
+     stroke-width="1"
+     stroke="none"
+     id="authentications">
+    <g
+       stroke="#666666"
+       transform="translate(1,1)"
+       id="delink">
+      <polyline
+         points="8 11.7272727 0 11.7272727 0 14.7272727 8 14.7272727"
+         id="Path-36" />
+      <line
+         id="Path-37"
+         y2="6.5029516"
+         x2="1.9427148"
+         y1="11.727273"
+         x1="1.9427148" />
+      <line
+         id="Path-38"
+         y2="6.6204252"
+         x2="14.181818"
+         y1="6.6204252"
+         x1="2.8421709e-14" />
+      <circle
+         r="4"
+         cy="13"
+         cx="14"
+         id="Oval" />
+      <path
+         stroke-linecap="round"
+         id="Combined-Shape"
+         d="m 12.608571,11.633387 2.727272,2.727273 m 0,-2.727273 -2.727272,2.727273" />
+      <polygon
+         points="7.2995019,5.6843419e-14 2.8421709e-14,4.2691029 14.181818,4.2691029 "
+         stroke-linejoin="round"
+         stroke-linecap="round"
+         id="Path-39" />
+      <line
+         id="line20"
+         y2="6.5029516"
+         x2="5.9427147"
+         y1="11.727273"
+         x1="5.9427147" />
+    </g>
+  </g>
+</svg>
