@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, ChangeDetectorRef, OnDestroy } from "@angular/core";
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
+// import { environment } from 'src/environments/environment';
 import { routePaths } from '../../constants/routing.constant';
-import * as config from '../../../assets/config.json';
-import { UserService } from "src/app/services/user.service";
+// import * as config from '../../../assets/config.json';
+import { UserService } from "../../services/user.service";
 declare var webSDKCustomCss;
 
 @Component({
@@ -33,8 +33,8 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   hideForgotPin: boolean = false;
   userNumber: any;
   aahandle:any;
-  constructor(private router: Router, private ref: ChangeDetectorRef) { 
-    this.bankName= UserService.data["bankName"];
+  constructor(private router: Router, private ref: ChangeDetectorRef, private userService : UserService) { 
+    this.bankName= this.userService.data["bankName"];
    }
 
   ngOnInit() {

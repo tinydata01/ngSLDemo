@@ -3,11 +3,11 @@ import { Router } from "@angular/router";
 
 import { CommonService } from '../../services/common.service';
 import { authenticationData } from '../../constants/user.constant';
-import { DataService } from 'src/app/services/data.service';
-import { utilService } from 'src/app/services/util.service';
-import { routePaths } from 'src/app/constants/routing.constant';
-import { environment } from 'src/environments/environment';
-import { EmbedVideoService } from 'ngx-embed-video';
+import { DataService } from '../../services/data.service';
+import { utilService } from '../../services/util.service';
+import { routePaths } from '../../constants/routing.constant';
+import { environment } from '../../../environments/environment';
+
 
 
 @Component({
@@ -16,6 +16,7 @@ import { EmbedVideoService } from 'ngx-embed-video';
   styleUrls: ["./authentication.component.scss"]
 })
 export class AuthenticationComponent implements OnInit {
+  logo:any
   consentId: any;
   noHeight: boolean;
   showProfileOverlay: boolean = false;
@@ -55,11 +56,11 @@ export class AuthenticationComponent implements OnInit {
 
   formType: any;
   formLayoutData: any;
-  showHeaderText: boolean = false;
+  showHeaderText: boolean = true;
   showSignupForm:boolean=false;
   autheticationData: any = authenticationData;
   constructor(private router: Router, public commonService: CommonService, private cd: ChangeDetectorRef, private dataService: DataService,
-    private utils: utilService, private embedService: EmbedVideoService) {
+    private utils: utilService) {
     this.router.events.subscribe(res => {
       var currentRoute: string = this.router.url;
       // Form heading based on current route
@@ -84,6 +85,7 @@ export class AuthenticationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.logo = '../../../assets/images/pngs/logo.png'
     this.commonService.formHeading.subscribe(data => {
       this.formLayoutData = this.autheticationData[data];
       this.cd.detectChanges();

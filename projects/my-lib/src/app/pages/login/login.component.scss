@@ -1,0 +1,88 @@
+.login__form ::ng-deep .error-msg{
+    padding-right: 185px !important;    
+}
+
+.custom-container-css{
+    height: 120px!important;
+    border-bottom: none;
+    background: #07ffdd0f;
+    width: 652px;
+    margin-left: -80px;
+    margin-top: 53px;
+    padding: 30px 15px 15px 15px!important;
+    border:1px solid lightgrey!important;
+    border-bottom:none!important;
+    box-shadow: none!important;
+}
+
+  .form-content{
+    padding: 80px 70px 30px 80px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 2px 0px;
+    height: 350px;
+  }
+.btn-center{
+    border-radius: 0px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+.login__form ::ng-deep .text-input-width{
+    width: 80% !important;;
+  }
+  .login__form ::ng-deep .terms-error-msg{
+      padding-right:150px!important;
+  }
+  .login__form ::ng-deep .custom-css-btn{
+    width: 64%!important;
+    display: block!important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    font-size: 18px!important;
+    font-family: sans-serif!important;
+    padding: 7px 0px!important;
+    border-radius: 0px!important;
+    box-shadow: 0px 9px 10px 0px!important;
+    box-shadow: 0px 0px 6px -3px #888888!important;
+}
+.btn-custom-css{
+    background: white!important;
+    color: #079AFF!important;
+    border: 2px solid #079AFF!important;
+    box-shadow: 1px 2px 0px 0px #979797!important;
+}
+@media (max-width:767px){
+    .login__form ::ng-deep .error-msg{
+        padding-right: 6px!important;
+    }
+    .login__form ::ng-deep .text-input-width{
+        width: 70% !important;;
+      }
+      .login__form ::ng-deep .terms-error-msg{
+        padding-right:35px!important;
+    }
+    .custom-container-css{
+        height: 180px!important;
+    width: 363px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    .otp-container{
+        margin-left: 25px;
+    }
+   
+}
+.login-custom-overlay-wrapper ::ng-deep .custom__overlay{
+        .overlay__container{
+            padding: 0px !important;;
+            max-width: 375px !important;
+        }
+        .overlay__template{
+            padding: 0px 0px 15px 0px!important;
+            margin: 0px!important;
+        
+        }
+    
+    
+}

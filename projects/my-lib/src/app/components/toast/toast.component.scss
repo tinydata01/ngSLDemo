@@ -1,0 +1,27 @@
+section {
+    position: fixed;
+    z-index: 1111;
+    left: 0;
+    right: 0;
+    // top: 80px;
+    .message {
+        max-width: 100%;
+        padding: 10px;
+        display: flex;
+        background-color: #99D25D; 
+        margin: 0 auto;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        &.error {
+            background-color: #F26C63;
+        }
+        &.warning {
+            background-color: yellow;
+        }
+    }
+    .toast__image{
+        height: 35px;
+        margin-right: 20px;
+    }
+}

@@ -5,15 +5,17 @@
     </div>
     <div class="cursor--pointer poweredby-logo" [class.noHeight]="noHeight" id="homepage"
       (click)="navigateToLoginPage()">
-      <img src="assets/images/pngs/logo.png" alt="Onemoney - Logo" class="logo-format" />
+      <img [src]="logo" alt="Onemoney - Logo" class="logo-format" />
     </div>
   </div>
   <div class="user-forms-section">    
     <div class="right-side-section">
       <div class="form-layout form-content" *ngIf="formLayoutData && formLayoutData.formType">
-        <div [ngSwitch]="formLayoutData.formType">
-          <!-- <app-login *ngSwitchCase="'login'"></app-login>                 -->
-        </div>
+        <app-login ></app-login>
+        <!-- <div [ngSwitch]="formLayoutData.formType">
+          {{formLayoutData.formType}}
+         <app-login ></app-login>                
+        </div> -->
       </div>
     </div>
   </div>
@@ -21,3 +23,4 @@
 </div>
 <!-- <app-aahandle *ngIf="!formLayoutData && showAaHandle"></app-aahandle>  
 <app-signup *ngIf="!formLayoutData && !showAaHandle"></app-signup> -->
+<!-- <p>Authentication page testing</p> -->

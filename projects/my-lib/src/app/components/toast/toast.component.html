@@ -1,0 +1,11 @@
+<section *ngIf="toastData.visibility" [style.top]="topOfToast">
+    <div class="message" [ngClass]="toastData.status">
+        <div class="toast__image" *ngIf="toastData.status == 'error'">
+            <img [src]="errorImage" alt="Error Message">
+        </div>
+        <div class="toast__image" *ngIf="toastData.status == 'success'">
+                <img [src]="successfullImage" alt="Success Message">
+        </div>
+        {{ "app."+toastData.data | translate }}
+    </div>
+</section>
