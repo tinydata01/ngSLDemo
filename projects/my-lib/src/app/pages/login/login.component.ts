@@ -3,7 +3,7 @@ import { FormDefinationService } from "../../services/form-defination.service";
 import { HttpService } from "../../services/http.service";
 import { Router } from "@angular/router";
 import { LoaderService } from "../../services/loader.service";
-import { OnemoneyWebsdkService } from 'onemoney-headless-websdk';
+import { MyLibService as OnemoneyWebsdkService } from '../../../lib/my-lib.service';
 import {
   toastStatuses
 } from "../../components/toast/toast.component";
