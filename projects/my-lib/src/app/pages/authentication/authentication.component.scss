@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 .onemoney-logo {
   position: absolute;
   top: 40px;
@@ -240,14 +244,14 @@ margin-left: 10px;
   padding: 80px 70px 30px 80px;
   border-radius: 0px;
   box-shadow: 0px 0px 2px 0px;
-  height: 350px;
+  height: 345px;
 }
 .authentication-pages{
   padding:40px 0px!important;
 }
 .header-custom-css{
   position: absolute;
-  margin-top: -258px;
+  margin-top: -215px;
 }
 
 @media (max-width:767px){

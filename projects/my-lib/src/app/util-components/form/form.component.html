@@ -6,15 +6,15 @@
   <div *ngIf="!isDiscovery">
     <div class="form__field--parent--container" *ngFor="let field of formInputs">
       <div [ngSwitch]="field.controlType">
-       
+
         <div *ngSwitchCase="'inputVuaText'" class="form-field">
           <div class="d-flex">
             <div class="mt-5">{{'app.yourrecommendedid'| translate}} </div>
-            <img src="assets/images/svgs/success.svg" alt="Success Sign"class="pl-10" />
+            <img src="assets/images/svgs/success.svg" alt="Success Sign" class="pl-10" />
           </div>
           <div>{{field.label | translate}}</div>
           <div class="vua-label">
-            
+
             <input *ngIf="!field.digitOnly" class="text-input" [type]="field.type" id="text-pin"
               [attr.maxLength]="field.maxLength" [formControlName]="field.key" [ngClass]="{ disable: !field.editable }"
               value="{{ field.value }}" [placeholder]="('app.'+field.placeholder | translate)" [autofocus]="field.focus"
@@ -37,8 +37,8 @@
           <span>{{field.label | translate}}</span>
           <input *ngIf="field.digitOnly" appDigitonly class="text-input text-input-width" [type]="field.type"
             id="text-mobileno" [attr.maxLength]="field.maxLength" [formControlName]="field.key"
-            [ngClass]="{ disable: !field.editable }" value="{{ field.value }}"
-            [placeholder]="('app.'+field.placeholder | translate)" [autofocus]="field.focus" />
+            [ngClass]="{ disable: !field.editable }" value="{{ field.value }}" placeholder="Login using mobile number"
+            [autofocus]="field.focus" />
           <input *ngIf="!field.digitOnly" class="text-input" [type]="field.type" id="text-pin"
             [attr.maxLength]="field.maxLength" [formControlName]="field.key" [ngClass]="{ disable: !field.editable }"
             value="{{ field.value }}" [placeholder]="('app.'+field.placeholder | translate)" [autofocus]="field.focus"
@@ -49,18 +49,18 @@
             <div
               *ngIf="(!formGroup.controls[field.key].value) && formGroup.controls[field.key].touched && !formSubmitAttempt"
               class="error-msg">
-              {{ "app."+field.emptyValueMessage | translate }}
+              Please enter valid mobile number
             </div>
             <div
               *ngIf="formGroup.controls[field.key].value && formGroup.controls[field.key].status == 'INVALID' && !formSubmitAttempt && formGroup.controls[field.key].touched"
               class="error-msg">
-              {{ "app."+field.validationValue | translate }}
+              Please enter valid mobile number
             </div>
           </div>
           <div>
             <div *ngIf="(!formGroup.controls[field.key].value) &&
                   formSubmitAttempt" class="error-msg">
-              {{ "app."+field.emptyValueMessage | translate }}
+              Please enter valid mobile number
             </div>
           </div>
           <div *ngIf="formGroup.controls[field.key].value &&
@@ -141,14 +141,15 @@
         <label *ngSwitchCase="'checkbox'" class="form-field checkbox">
           <input type="checkbox" [formControlName]="field.key" id="text-checkbox" />
           <span class="checkbox__image" [class.specific__width--checkbox]="field.key == 'acceptTerms'"></span>
-          <span *ngIf="field.key == 'acceptHDFCTerms'">{{ 'app.hdfcprivacypolicy' | translate : { companyName: bankName } }}
+          <span *ngIf="field.key == 'acceptHDFCTerms'">I authorize HDFC Bank and its representatives to Call,SMS or
+            communicate via WhatsApp regarding my application. This consent overrides any registration for DNC/NDNC. I
+            confirm I am in India, I am a major and a resident of India and I have read and I accept HDFC Bank's Privacy
+            policy.
             <br />
-           
           </span>
-          
           <span *ngIf="field.key !== 'acceptTerms' && field.key !== 'acceptHDFCTerms'">{{ "app."+field.label | translate
             }}</span>
-            <br/>
+          <br />
           <span *ngIf="field.key == 'acceptTerms'">{{ 'app.iAgreeToOnemoney' | translate }}
             <a class="form__terms-and-conditions-text websdk-customcss-link" id="oneLink"
               href="https://www.onemoney.in/tandc.html" target="_blank" rel="noopener noreferrer">
@@ -156,14 +157,13 @@
             </a>
           </span>
           <div *ngIf="isInvalid(formGroup.controls[field.key],
-            formSubmitAttempt)" class="error-msg terms-error-msg">
-            {{ "app."+field.emptyValueMessage | translate }}
+            formSubmitAttempt)" class="error-msg terms-error-msg">Please select 'Terms and conditions'
           </div>
         </label>
         <div *ngSwitchCase="'submitButton'">
           <button class="primary-button button--full__width websdk-customcss-button custom-css-btn" id="submit"
             (click)="field.callback($event)" [type]="field.type">
-            {{ "app."+field.label | translate }}
+            Continue
           </button>
         </div>
       </div>

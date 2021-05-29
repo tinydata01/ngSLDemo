@@ -3,6 +3,8 @@
 }
 
 .custom-container-css{
+    outline: none;
+    box-sizing: border-box;
     height: 120px!important;
     border-bottom: none;
     background: #07ffdd0f;
@@ -19,7 +21,7 @@
     padding: 80px 70px 30px 80px;
     border-radius: 0px;
     box-shadow: 0px 0px 2px 0px;
-    height: 350px;
+    height: 345px;
   }
 .btn-center{
     border-radius: 0px;
@@ -27,8 +29,25 @@
     margin-right: auto;
     margin-left: auto;
 }
+
+.center {
+    text-align: center;
+  }
+
+.cursor--pointer {
+    cursor: pointer;
+}
+.primary__button {
+    background-color: #079AFF;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 35px;
+    border: none;
+    border-radius: 3px;
+}
+
 .login__form ::ng-deep .text-input-width{
-    width: 80% !important;;
+    width: 74% !important;
   }
   .login__form ::ng-deep .terms-error-msg{
       padding-right:150px!important;

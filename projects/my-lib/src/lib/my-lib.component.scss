@@ -9,6 +9,12 @@
     color: white;
     padding: 10px;
 }
+
+*{
+    outline: none !important;
+    box-sizing: border-box;
+}
+
 .logout-icon{
     width: 37px;
     margin-top: -8px;

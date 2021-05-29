@@ -76,6 +76,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
    * @desc This function will submit the form after checking for all the validations
    */
   submit(event): void {
+    console.log(this.formGroup, event, this.isDiscovery, this.fi);
     this.formSubmitAttempt = true;
     if (this.formGroup.valid) {
       if (this.isDiscovery) {

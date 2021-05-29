@@ -4,24 +4,24 @@
 <app-form *ngIf="loginForm && !showAAHandle" class="login__form" [formGroup]="loginForm.formGroup"
   [formInputs]="loginForm.formInputs" (submitEvent)="loginUser($event)">
 </app-form>
-<div *ngIf="!showAAHandle" style="position: absolute;top: 412px;">
+<div *ngIf="!showAAHandle" style="position: absolute;top: 405px;">
   <span>Click here to read the</span>
   <a class="form__terms-and-conditions-text websdk-customcss-link" id="oneLink"
     href="https://www.onemoney.in/tandc.html" target="_blank" rel="noopener noreferrer">
-    {{ 'app.privacyPolicy' | translate }}
+    PRIVACY POLICY
   </a>
 </div>
 <div class="form-content custom-container-css" *ngIf="!showAAHandle">
-  <div class="center">{{'app.hdfcContent' | translate}}</div><br />
-  <button id="hdfc-loginBtn"
-    class="primary__button cursor--pointer btn-center btn-custom-css  btn-custom-style">{{'app.existingCustomer'|translate}}</button>
+  <div class="center">Speed Up the Loan Application and Disbursal Of Your Loan</div><br />
+  <button id="hdfc-loginBtn" class="primary__button cursor--pointer btn-center btn-custom-css  btn-custom-style">LOGIN
+    AS EXISTING CUSTOMER</button>
 </div>
 
 <!-- popup : OTP verification starts -->
 <app-custom-overlay *ngIf="showOTPData" class="login-custom-overlay-wrapper">
-  <app-verify-mobile-number class="otp-container" id="loginOTPContainer" [logInData]="logInData"></app-verify-mobile-number>
-  
+  <app-verify-mobile-number class="otp-container" id="loginOTPContainer" [logInData]="logInData">
+  </app-verify-mobile-number>
+
 </app-custom-overlay>
 
 <!-- popup : OTP verification ends -->
-

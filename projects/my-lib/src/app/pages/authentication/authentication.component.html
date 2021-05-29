@@ -1,4 +1,4 @@
-<div class="authentication-pages"  *ngIf="formLayoutData">
+<div class="authentication-pages" *ngIf="formLayoutData">
   <div>
     <div class="header-custom-css" *ngIf="showHeaderText">
       <h1 class="header-theme">Let's Get Started</h1>
@@ -8,14 +8,12 @@
       <img [src]="logo" alt="Onemoney - Logo" class="logo-format" />
     </div>
   </div>
-  <div class="user-forms-section">    
+  <div class="user-forms-section">
     <div class="right-side-section">
       <div class="form-layout form-content" *ngIf="formLayoutData && formLayoutData.formType">
-        <app-login ></app-login>
-        <!-- <div [ngSwitch]="formLayoutData.formType">
-          {{formLayoutData.formType}}
-         <app-login ></app-login>                
-        </div> -->
+        <div ngSwitch="login">
+          <app-login></app-login>
+        </div>
       </div>
     </div>
   </div>
