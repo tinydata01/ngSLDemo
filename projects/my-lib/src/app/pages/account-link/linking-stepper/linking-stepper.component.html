@@ -1,0 +1,25 @@
+<section>
+
+	<div class="account-list-sections">
+		<div class="cards__container">
+			<h1>{{'app.accountlinkingandconsentdetails'|translate}}</h1>
+			<div class="cursor--pointer poweredby-logo" id="accounLinkingpageId">
+				<img src="assets/images/pngs/logo.png" alt="Onemoney - Logo" class="logo-format" />
+			</div>
+			<div *ngIf="discoveredAccountsLength>0">{{'app.accountDiscovered'|translate: { userNumber:userMobileNumber } }}</div>
+			<h4 *ngIf="discoveredAccountsLength>0">{{'app.aaprovingConsent'|translate}}</h4>
+			<div *ngIf="discoveredAccountsLength==0">{{'app.noAccountsFound'|translate: { userNumber:userMobileNumber } }}</div>
+			
+	       
+			<app-discover-accounts [discoveredAccountsLength]="discoveredAccountsLength" [discoveredAccounts]="discoveredAccounts"></app-discover-accounts>
+		</div>
+
+		<div class="financial-institutions mt-75">
+			<div class="fip-container">
+				<h3 class="center ml-75">{{'app.availablefinancialinstitutions'|translate}}</h3>				
+				<app-fi-list [fiData]="FIs" (selectedFI)="selectedFIs($event)"></app-fi-list>
+			</div>
+		</div>
+	</div>
+
+</section>

@@ -1,0 +1,21 @@
+<section class="nav__section" id="section-show" (click)="showIt()">
+    <div class="nav__heading">
+        {{ "app."+getCurrentStep().desc | translate }}
+    </div>
+    <div class="nav__steps">
+        <div class="nav__step" *ngFor="let eachStep of stepperData; let ind = index" [ngClass]="{'active': eachStep.active, 'done': eachStep.done}">
+            <div class="nav__step--icon">
+                <app-svg *ngIf="eachStep.active || eachStep.done" [name]="eachStep.icon"></app-svg>
+                <app-svg *ngIf="!(eachStep.active || eachStep.done)" [name]="eachStep.iconInactive"></app-svg>
+            </div>
+            <div class="nav__step--content">
+                <div class="nav__step--index">
+                    {{'0' + (ind + 1)}} <span class="nav__step--total mobile--show">of {{stepperData.length}}</span>
+                </div>
+                <div class="nav__step--name">
+                    {{ "app."+eachStep.name | translate }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

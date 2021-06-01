@@ -1,0 +1,156 @@
+<section class="accounts-container" *ngIf="discoveredAccountsLength!=0">
+
+  <div *ngFor="let acc of discoveredAccounts;let i=index" class="discover-account-content">
+    <div class="bank_account_container">
+
+      <div class="d-flex">
+        <img src="{{ acc?.itm.smallUrl }}" onerror="this.onerror=null;this.src='assets/images/svgs/fi.svg';"
+          class="account__list__item_image" alt="FI - Logo" />
+        <div class="account__list__item__name">{{acc?.fipId | capitalize}}</div>
+
+      </div>
+      <div class="mt-10 d-flex" *ngFor="let itm of acc.itm;let j=index">
+        <div class="checkbox">
+          <input type="checkbox" class="input-checkbox-value" id="discovered{{i}}{{j}}"
+            (click)="accountCheck($event,accRefNumber,i,j,'discoveredAccounts')" />
+          <label for="discovered{{i}}{{j}}">{{(acc?.itm[j].accType == "DEFAULT" ? "TERM DEPOSIT" :
+            acc?.itm[j].accType) |
+            capitalize}} Account No :
+            <span> {{acc?.itm[j].maskedAccNumber}}</span></label>
+        </div>
+
+      </div>
+      <div *ngIf="!displayLinked[i]" class="link-account cursor--pointer" (click)="sendOTPToLink(i,'sendOTP')"><a
+          class="link-text">{{'app.link'
+          |translate}}</a></div>
+      <div *ngIf="displayLinked[i]" class="link-account d-flex" style="left: 450px;">
+        <img src="../../../../../assets/images/pngs/check-mark.png" class="linked-account-img">
+        <span class="linked-account-text">{{'app.linked'|translate}}</span>
+      </div>
+    </div>
+    <div *ngIf="displayOTP[i]">
+      <div class="d-flex">
+        <b>{{'app.otp'|translate}}: </b>
+        <app-custom-otp [settings]="settings" (inputChange)="onInputChange($event)"  (keydown)="keyDownFunction($event,i)"></app-custom-otp>
+        <button id="sendotp" class="primary__button cursor--pointer otp-btn" (click)="sendOtp(i)"
+          type="submit">{{'app.submit'|translate}}</button>
+
+      </div>
+      <div class="error-msg"  *ngIf="submitted && (!enteredOtp || enteredOtp.length < settings.length)">
+        {{ 'app.pleaseEnterValidOTP' | translate }}
+      </div>
+      <div class="mt-5">
+        <span class="resend__otp  link-content d-flex" (click)="sendOTPToLink(i,'resendOTP')">
+          {{ 'app.resendOTP' | translate }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex">
+    <img src="../../../../../assets/images/pngs/plus-icons.png" class="plus-sign" />
+    <div class="custom-title">{{ 'app.addMoreAccounts' | translate }}</div>
+  </div>
+  <div class="checkbox mt-10">
+
+    <input type="checkbox" class="input-authorize-value pl-10" id="input-authorize" #mycheckbox
+      (change)="changeAuthorizeEvent()" />
+    <label for="input-authorize" class="pl-10">{{'app.authorizeHDFC' | translate : { companyName: bankName } }}</label>
+  </div>
+  <div>
+    <!-- <span class="d-flex justify__content--end link-content" *ngIf="!showDetail" (click)="showConsentDetail()">{{'app.show'|translate}} {{'app.consentDetail'|translate}}</span>
+    <span class="d-flex justify__content--end link-content" *ngIf="showDetail" (click)="hideConsentDetail()">{{'app.hide'|translate}} {{'app.consentDetail'|translate}}</span> -->
+    <div *ngIf="showDetail">
+      <div *ngFor="let cd of consentDetails;let i=index" class="card-layout mt-10">
+        <div>
+          <div class="mt-5"><b>Purpose: </b> <span> {{cd.Purpose.text | capitalize}}</span></div>
+          <div class="mt-5"><b>Account Type: </b>
+            <span *ngFor="let fiType of cd.fiTypes" class="child"> {{fiType | capitalize}}
+              <span class="comma"> ,</span></span>
+          </div>
+          <div class="mt-5"><b>Date Range: </b> <span>from {{cd.FIDataRange.from | date:'dd MMM
+              yyyy' }} </span><span> to {{cd.FIDataRange.to | date:'dd MMM
+              yyyy' }} </span></div>
+          <div class="mt-5"><b>Data Type: </b>
+            <span *ngFor="let consentType of cd.consentTypes" class="child"> {{consentType |
+              capitalize }} <span class="comma"> ,</span> </span>
+          </div>
+          <div class="mt-5"><b>Frequency Of Data Pull: </b> <span> {{cd.fetchType | capitalize}}</span></div>
+          <div class="mt-5"><b>Consent Valid upto: </b> <span> {{cd.consentExpiry| date:'dd MMM
+              yyyy' }}</span></div>
+          <div class="mt-5"><b>Data Life: </b> <span> {{cd.DataLife.value}} {{cd.DataLife.unit}}</span></div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+  <div class="mt-10" *ngIf="linkedAccountsLength!=0">
+    <h2>Linked Accounts</h2>
+    <div *ngFor="let linkedAc of linkedAccounts;let k=index">
+      <div class="bank_account_container">
+
+        <div class="d-flex">
+          <img src="{{ linkedAc?.itm.smallUrl}}" onerror="this.onerror=null;this.src='assets/images/svgs/fi.svg';"
+            class="account__list__item_image" alt="FI - Logo" />
+          <div class="account__list__item__name">{{linkedAc?.fipId | capitalize}}</div>
+
+        </div>
+        <div class="mt-10 d-flex" *ngFor="let itm of linkedAc.itm;let j=index">
+          <div class="checkbox">
+            <input type="checkbox" class="input-checkbox-value" id="linked{{k}}{{j}}"
+              (click)="accountCheck($event,accRefNumber,k,j,'LinkedAccount')" />
+            <label for="linked{{k}}{{j}}">{{(linkedAc?.itm[j].accType == "DEFAULT" ? "TERM DEPOSIT" :
+              linkedAc?.itm[j].accType) |
+              capitalize}} Account No :
+              <span> {{linkedAc?.itm[j].maskedAccNumber}}</span></label>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="pl-20 mt-30 d-flex">
+    <button class="custom-btn btn-primary" id="aprroveId" type="submit" [disabled]="btnDisabled"
+      (click)="onConsentActionClicked('CONSENT_CONFIRMED','sendOTP')">
+      {{ 'app.Approve' | translate }}
+    </button>
+    <button class="custom-btn btn-danger ml-25" id="rejectId" type="submit" [disabled]="btnDisabled"
+      (click)="onConsentActionClicked('CONSENT_REJECT','sendOTP')">
+      {{ 'app.Reject' | translate }}
+    </button>
+  </div>
+</section>
+<section class="accounts-container" *ngIf="discoveredAccountsLength==0">
+
+  <app-discover-account></app-discover-account>
+
+</section>
+<app-custom-overlay class="action__dialog" *ngIf="showVpinPopup">
+  <div class="consent-action-popup">
+    <div class="d-flex">
+      <div class="consent-action-popup-heading">{{ 'app.enterYourOtp' | translate}} 
+      </div>
+      <div class="close-btn cursor--pointer" title="close" (click)="closeVpinPopup()">
+        <img class="close-btn-icon" src="../../../../../assets/images/pngs/close-button.png"></div>
+    </div>
+    <div class="consent-action-popup-vpin-section">
+      <div class="opt__container">
+        <app-custom-otp [settings]="settings" (inputChange)="onPinChange($event)"></app-custom-otp>
+        
+      </div>
+    </div>
+    <div class="error-msg otp__error"
+          *ngIf="consentActionSubmitted && ( !consentActionOtp || consentActionOtp.length < settings.length)">
+          {{ 'app.pleaseEnterValidOTP' | translate }}
+        </div>
+    <div class="consent-popup-forgot-section  cursor--pointer" id="resendOTPId" (click)="sendConsentOTP()">{{ 'app.resendOTP' |
+      translate}}</div>
+    <button class="custom-btn btn-primary consent-action-button cursor--pointer" id="submitOTPId" type="submit"
+      (click)="performAction()">
+      {{ 'app.submit' | translate }}
+    </button>
+  </div>
+</app-custom-overlay>

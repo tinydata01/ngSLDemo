@@ -1,0 +1,79 @@
+
+<div class="discover__accounts__list">
+  <div class="discover__accounts__list___item" *ngFor="let eachfi of
+    discoverdAccounts">
+    <div class="account__list__item-logo-section">
+      <div class="account__list__item-logo">
+        <img src="{{ eachfi.smallUrl }}" class="account__list__item_image" alt="FI - Logo"/>
+        <div class="form__account-logo-info">
+          <div class="account__list__item__name">{{ eachfi.fipName }}</div>
+          <div class="account__list__item__fis" *ngFor="let fi of eachfi.FIs">
+            {{ "app."+fi | translate }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="eachfi && eachfi.linkAccountForm"
+      class="discover__accounts__list__validateing-form">
+      <div class="discover__accounts__list__validating-form-elements">
+        <app-form [formGroup]="eachfi.linkAccountForm.formGroup"
+          [formInputs]="eachfi.linkAccountForm.formInputs"
+          (submitEvent)="linkAccountFormSubmit($event)" [fi]="eachfi"
+          [isDiscovery]="true"></app-form>
+        <div class="account__link-success-msg" *ngIf="eachfi.formStatus ==
+          'done'">
+          <img src="assets/images/svgs/success.svg" alt="Success Sign"/>
+          <span class="account__link-success-msg-text">
+              {{ 'app.accountLinkedSuccessfully' | translate }}
+          </span>
+        </div>
+        <div *ngIf="eachfi.formStatus == 'sendotp'">
+          <div class="otp-timer">
+            <span class="pr-10">{{ 'app.anOtpHasBeenSentTo' | translate: {userNumber: eachfi.userNumber } }}</span>
+          </div>
+          <div class="otp-block">
+            <app-custom-otp [settings]="settings" (inputChange)="onInputChange($event)"></app-custom-otp>
+            <div class="discover__link-cancel resend-otp-styling" id="discover-resendotp" (click)="linkAccountFormSubmit(eachfi)">
+              {{ 'app.resendOTP' | translate }}
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div *ngIf="eachfi.formStatus == 'pending' ||
+        eachfi.formStatus == 'failed' ||
+        eachfi.formStatus == 'skipped'" class="form__status">
+        <div class="button-section account__link-form-button">
+          <div class="account__linking-form-status">
+            <div>
+              <img src="assets/images/svgs/{{eachfi.formStatus}}.svg"
+                class="account__linking__form-staus-logo" alt="Loading"/>
+            </div>
+            <button class="discover__link-cancel" id="link-cancelfailed"
+              [ngClass]="{'form__error-text': eachfi.formStatus == 'failed' }">
+              {{ "app."+eachfi.formStatus | translate }}
+            </button>
+          </div>
+          <div *ngIf="eachfi.formStatus == 'failed'" class="pl-20 skip-retry-section">
+            <button class="discover__link-cancel" id="skipcancel" (click)="skipFi(eachfi)">
+              {{ 'app.skip' | translate }}
+            </button>
+            <button class="discover__link-submit" id="link-eachfisubmit" (click)="cancelOtp(eachfi)">
+              {{ 'app.retry' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="eachfi.formStatus == 'sendotp'" class="button-section
+        account__link-form-button">
+        <button class="discover__link-cancel" id="discover-eachficancel" (click)="cancelOtp(eachfi)">
+          {{ 'app.cancel' | translate }}
+        </button>
+        <button class="discover__link-submit" id="discover-sendeachfisubmit" (click)="sendOtp(eachfi)">
+          {{ 'app.submit' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

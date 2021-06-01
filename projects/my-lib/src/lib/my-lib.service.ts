@@ -402,6 +402,7 @@ export class MyLibService {
   verifyVua(organisationid: string, clientId: string, clientSecret: string, appIdentifier: { appName?: string, appIdentifier: string }[],
             body: { vua: string }): any {
     try {
+      console.log('in lib service', organisationid,clientId,clientSecret,body,appIdentifier)
       if (!organisationid || !clientId || !clientSecret || !body) { throw new Error('All parameters are required'); }
       const data: any = {
         headers: new HttpHeaders({
