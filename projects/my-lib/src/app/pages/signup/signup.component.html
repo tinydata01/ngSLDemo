@@ -1,0 +1,23 @@
+<section class="mt-100 w-500">
+    <div class="cursor--pointer poweredby-logo"  id="signuppage">
+    <img src="assets/images/pngs/logo.png" alt="Onemoney - Logo" class="logo-format" />
+  </div>
+  <div>
+    <h2 class="text-primary">{{'app.Register'|translate}}</h2>
+    <h3>Hello {{userNumber}}, </h3>
+   
+    <div class="mt-10">
+      <app-form class="signup__form" [formGroup]="signupForm.formGroup" [formInputs]="signupForm.formInputs"
+        (submitEvent)="signUpUser($event)">
+      </app-form>
+   
+    </div>
+  </div>
+
+  <app-custom-overlay *ngIf="isVerifyNumber" class="signup-custom-overlay-wrapper">
+    <app-verify-mobile-number class="otp-container" id="signUpOTPContainer" [signupData]="signupData"></app-verify-mobile-number>
+  </app-custom-overlay>
+  <!-- <app-verify-mobile-number *ngIf="isVerifyNumber"  class="otp-container" [signupData]="signupData"></app-verify-mobile-number> -->
+  
+    
+    </section>

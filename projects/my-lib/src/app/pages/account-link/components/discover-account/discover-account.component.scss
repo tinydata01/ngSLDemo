@@ -1,0 +1,105 @@
+.discover-account-button{
+    align-self: center;
+    margin-top: 10px;
+    width: 100px;
+    background-color: #0080ff!important;
+    font-size: 14px;
+    margin-left: 25px!important;
+  }
+  .discover-account-text-input{
+    width:30%;
+  }
+:host {
+    width: 100%;
+}
+.discover {
+    display: flex;
+    width: 100%;
+    @media (max-width:767px){
+        flex-direction: column;
+    }
+}
+.account__link-fail-msg-text {
+    color: red;
+    font-size: 20px;
+}
+.server__error {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    z-index: 1;
+    @media (max-width:767px){
+        top: unset;
+        bottom: 0;
+    }
+}
+.discover__account--section ::ng-deep app-form{
+    .account__identifier-left-label{
+        font-size: 14px !important;
+    }
+    display: flex;
+    align-items: center;
+    // .discover__accounts__list__validateing{
+    //     &:last-child{
+    //         margin: 0;
+    //     }
+    // }
+}
+
+.otp-timer{
+    padding: 0 !important;
+}
+
+.otp-block{
+    display: flex;
+}
+
+
+.discover__accounts__list__validating-form-elements{
+    @media(max-width:1024px){
+        // width: 100%;
+        .enter-otp{
+            margin-left: auto;
+        }
+    }
+    @media(max-width:767px){
+        .enter-otp{
+            margin-left: 0;
+        }
+        .otp-block{
+            flex-direction: row !important;
+        }
+        margin-bottom: 40px;
+    }
+}
+
+@media(max-width:1024px){
+    .account__list__item-logo-section{
+        align-items: initial;
+        &::after{
+            background: transparent;
+        }
+    }
+}
+
+.status__img{
+    display: flex;
+    justify-content: center;
+}
+
+.otp__container{
+    position: relative;
+}
+
+.otp__error{
+    position: initial;
+    @media(max-width:1024px){
+        position: absolute;
+        padding-right: 0;
+        right: 0;
+    }
+    @media(max-width:767px){
+        position: initial;
+    }
+}

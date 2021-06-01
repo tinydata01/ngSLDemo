@@ -1,0 +1,38 @@
+@import "~src/styles.scss";
+
+.enter-otp ::ng-deep .otp-input {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #979797;
+    font-size: 20px;
+    color: $primaryTextColor;
+    width: 24px;
+    height: auto;
+    button {
+      display: none;
+    }
+  }
+  
+  .enter-otp ::ng-deep button {
+    display: none;
+  }
+  
+  .otp-timer {
+    padding-bottom: 5px !important
+  }
+
+  .account__link-form-right-status{
+    position: absolute;
+    right: 25px;
+  }
+
+  .discover__accounts__list__validating-form-elements{
+    display: flex;
+    align-items: center;
+  }
+
+  .otp-block{
+    @media(max-width: 767px){
+      flex-direction: column;
+    }
+  }

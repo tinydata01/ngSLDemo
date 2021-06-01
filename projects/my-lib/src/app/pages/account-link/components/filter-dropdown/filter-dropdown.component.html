@@ -1,0 +1,11 @@
+<div class="filter__dropdown--container">
+    <span class="filter__image--container">
+            <img src="assets/images/svgs/filter.png" alt="Filter Here">
+    </span>
+    <div  class="FI__list__filter--input__field cursor--pointer" id="filter" (click)="openFilterMenu()" appOutsideClick (clickOutside)="closeFilterMenu()">
+        <span class="filter__value">{{ "app."+selectedFilter.name | translate }}</span>
+    </div>
+    <div class="filter__menu" *ngIf="showFilterMenu">
+        <div *ngFor="let filter of filterData.filters; let i = index" (click)="changeFilterValue(i)" id="change-filter" class="menu__items cursor--pointer " [class.menu__item--selected]="selectedFilter.name == filter.name">{{ "app."+filter.name | translate }}</div>
+    </div>
+</div>

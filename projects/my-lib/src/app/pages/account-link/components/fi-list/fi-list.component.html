@@ -1,0 +1,4 @@
+
+<div *ngFor="let eachFI of fiData" class="each__card" id="selectfi" (click)="selectFI(eachFI)" [ngClass]="{'selected': eachFI.selected,'disable':disabledFIP(eachFI)}">
+    <app-fi-small-card [needReqData]="true" [cardData]="eachFI" class="cursor--pointer equal__height--card"></app-fi-small-card>
+</div>

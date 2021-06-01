@@ -1,0 +1,26 @@
+<section>
+    <div class="font-styling font-color mt-100">
+      <div>
+        <h2>{{'app.alreadyaaexist'|translate}}</h2>
+      </div>
+       
+     
+        <div>
+            {{'app.enteraahandle'|translate}}
+        </div>
+        <div>
+            <input class="text-input-css p-0" type="text" id="aahandle" [(ngModel)]="aahandle"/>
+            <button class="primary-button primary-submit-btn cursor--pointer font-styling" type="submit">{{'app.submit'|translate}}</button>
+        </div>
+        <div>
+         <div class="mt-100">{{'app.donthaveaahandlecreateonewithonemoney'|translate}}</div>
+         <div>
+          <button class="primary-button primary-submit-btn cursor--pointer ml-0 font-styling" (click)="openSignupForm(aahandle)" type="submit">{{'app.proceed'|translate}}</button>
+  
+         </div>
+        
+      </div>
+    </div>
+    
+    
+    </section>

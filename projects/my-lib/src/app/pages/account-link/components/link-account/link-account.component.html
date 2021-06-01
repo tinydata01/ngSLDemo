@@ -1,0 +1,110 @@
+
+<div class="discover__accounts__list">
+    <div class="discover__accounts__list__item" *ngIf="eachfi">
+      <div class="account__list__item-logo-section">
+        <div class="account__list__item-logo">
+          <img src="{{ eachfi.smallUrl }}" onerror="this.onerror=null;this.src='assets/images/svgs/fi.svg';"
+           class="account__list__item_image" alt="FI - Logo"/>
+          <div class="form__account-logo-info">
+            <div class="account__list__item__name">{{ eachfi.fipName | capitalize: 'specialcharacter'}}</div>
+            <div class="account__list__item__fis" *ngFor="let fi of eachfi && eachfi.FIs">
+              {{ "app."+fi | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="eachfi && eachfi.linkAccountForm"
+        class="discover__accounts__list__validateing-form">
+        <div class="discover__accounts__list__validating-form-elements">
+          <div class="discovered-accounts-by-fitype">
+            <!-- Normal Accounts Section-->
+            <app-form [formGroup]="eachfi.linkAccountForm.formGroup"
+              [formInputs]="eachfi.linkAccountForm.formInputs"
+              (submitEvent)="linkAccountFormSubmit($event)" [fi]="eachfi"
+              [isDiscovery]="true" [linkedAccounts]="eachfi.formStatus ==
+              'done'"></app-form>
+            <!-- Normal Accounts Section-->
+
+            <!-- GSTIN Accounts Section-->
+            <div *ngIf="eachfi.gstlinkAccountForm.length > 0">
+                <app-gst-account-link *ngFor="let gstin of eachfi.gstlinkAccountForm; let i=index"
+                  [formGroup]="eachfi.gstlinkAccountForm[i].formGroup"
+                  [formInputs]="eachfi.gstlinkAccountForm[i].formInputs"
+                  (submitEvent)="gstLinkAccountFormSubmit($event)" [fi]="eachfi" [index]="i"
+                  [isDiscovery]="true" [formSubmitAttempt]="false" [linkedAccounts]="eachfi.formStatus == 'done'">
+                </app-gst-account-link>
+            </div>
+            <!-- GSTIN Accounts Section-->
+          </div>
+          <div class="account__link-success-msg" *ngIf="eachfi.formStatus ==
+            'done'">
+            <img src="assets/images/svgs/success.svg" alt="Success Sign"/>
+            <span class="account__link-success-msg-text">
+                {{ 'app.accountLinkedSuccessfully' | translate }}
+            </span>
+          </div>
+          <div class="enter-otp" *ngIf="eachfi.formStatus == 'sendotp'">
+            <div class="otp-timer">
+              <span class="pr-10">
+                  {{ 'app.anOtpHasBeenSentTo' | translate: { userNumber: eachfi.userNumber } }}
+                </span>
+            </div>
+            <div class="otp-block">
+              <div class="otp__container" >
+                  <app-custom-otp [settings]="settings" (inputChange)="onInputChange($event)" (keydown)="keyDownFunction($event, eachfi)"></app-custom-otp>
+                  <div class="error-msg" *ngIf="submitted && ( !enteredOtp || enteredOtp.length < settings.length)">
+                      {{ 'app.pleaseEnterValidOTP' | translate }}
+                  </div>
+              </div>
+              <div class="discover__link-cancel resend-otp-styling websdk-customcss-link" id="link-account" (click)="linkAccountFormSubmit(eachfi, true)" *ngIf="!opened">
+                {{ 'app.resendOTP' | translate }}
+              </div>
+            </div>
+  
+          </div>
+
+          <!-- new changes popup OTP-->
+          <!-- <div *ngIf="eachfi.formStatus == 'sendotp'">
+              <app-small-dialog class="account__card--p-dialog" (onClose)="hideConcentActionPopup($event)" [eachFi]="accActionDetails.eachFi" [visibility]="showConsentActionPopup">
+                  <app-account-action *ngIf="showConsentActionPopup" [consentActionDetails]="accActionDetails" (resentOtp)="resendOtp($event)" (submitOtp)="submitOtp($event)" (consentActionClosed)="hideConcentActionPopup($event)"></app-account-action>
+              </app-small-dialog>
+          </div> -->
+          <!-- new changes popup OTP-->
+        </div>
+  
+        <div *ngIf="eachfi.formStatus == 'pending' ||
+          eachfi.formStatus == 'failed' ||
+          eachfi.formStatus == 'skipped'" class="form__status">
+          <div class="button-section account__link-form-button">
+            <div class="account__linking-form-status">
+              <div>
+                <img src="assets/images/svgs/{{eachfi.formStatus}}.svg"
+                  class="account__linking__form-staus-logo" [ngClass]="{'rotating': eachfi.formStatus == formStatuses.PENDING}" alt="Loading"/>
+              </div>
+              <button class="discover__link-cancel" id="link-filink"
+                [ngClass]="{'form__error-text': eachfi.formStatus == 'failed' }">
+                {{ "app." + eachfi.formStatus | translate }}
+              </button>
+            </div>
+            <div *ngIf="eachfi.formStatus == 'failed'" class="pl-20 skip-retry-section">
+              <button class="discover__link-cancel" id="link-cancel" (click)="skipFi(eachfi)">
+                {{ 'app.skip' | translate }}
+              </button>
+              <button class="discover__link-submit" id="link-submit" (click)="cancelOtp(eachfi)">
+                {{ 'app.retry' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="eachfi.formStatus == 'sendotp'" class="button-section
+          account__link-form-button">
+          <button class="discover__link-cancel websdk-customcss-cancel" id="link-sendcancel" (click)="cancelOtp(eachfi)">
+            {{ 'app.cancel' | translate }}
+          </button>
+          <button class="discover__link-submit websdk-customcss-consent-btn" id="link-sendsubmit" (click)="sendOtp(eachfi)">
+            {{ 'app.submit' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

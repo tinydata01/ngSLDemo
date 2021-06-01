@@ -7,8 +7,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 // import { environment } from '../environments/environment';
 //import { AppRoutingModule } from './app-routing.module';
 import { CustomDashboardModule } from '../custom-dashboard/custom-dashboard.module';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+// import { UserService } from '../app/services/user.service';
 // export function initializeApp(userService: UserService) {
 //   return (): Promise<any> => {
 //     return userService.load();
@@ -21,6 +22,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     HttpClientModule,
     CommonModule,
     CustomDashboardModule,
+    TranslateModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -29,12 +31,17 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
       }
   })
   ],
-  providers: [CustomDashboardModule],
+  providers: [CustomDashboardModule,],
   //bootstrap: [MyLibComponent],
-  exports: [MyLibComponent],
+  exports: [MyLibComponent,TranslateModule],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
-export class MyLibModule { }
+export class MyLibModule {
+  constructor(translate: TranslateService) {
+    translate.setDefaultLang('en');
+    translate.use('en');
+  }
+ }
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, '../assets/i18n/', 'en.json');
+  return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
 }

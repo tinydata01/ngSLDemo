@@ -1,0 +1,24 @@
+.financial-institutions {
+    min-width: 340px;
+    flex: 1;
+}
+.fip-container{
+    border-left: 3px solid #666666;
+    padding: 0px 20px;
+}
+.cards__container{
+    width: 100%;
+}
+.account-list-sections{
+    display: flex;
+    justify-content: space-between;
+}
+@media(max-width:767px){
+    .account-list-sections{
+        display: block;
+    }
+    .fip-container {
+        border-top: 3px solid #666666;
+        border-left:none;
+}
+}

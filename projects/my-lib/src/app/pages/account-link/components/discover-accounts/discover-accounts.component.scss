@@ -1,0 +1,399 @@
+@import "~src/styles.scss";
+//account linking flow form styles start here 
+.plus-sign{
+  width: 28px;
+  height: 30px;
+}
+.custom-title{
+  font-size: 20px;
+  font-weight: bolder;
+  margin-left: 20px;
+  margin-top: 3px;
+  color: black;
+}
+.checkbox .tag {
+  color: #595959;
+  display: block;
+  float: left;
+  font-weight: bold;
+  position: relative;
+  width: 120px;
+}
+.checkbox label {
+  display: inline;
+}
+.checkbox .input-checkbox-value {
+  display: none;
+}
+.checkbox .input-authorize-value{
+  display:none;
+}
+.link-content{
+  justify-content: center;
+  color: #079AFF; 
+  cursor: pointer;
+  margin-bottom: -1px;
+}
+
+.link-content:hover{
+  text-decoration: underline; 
+}
+.discover-account-content{
+  width:420px;
+}
+.linked-account-img{
+  width: 35px;
+ margin-top: -9px;
+}
+.linked-account-text{
+   color: rgb(72, 178, 239);
+}
+.input-checkbox-value + label:after {
+  background-color: #fafafa;
+  border: 1px solid grey;
+  display: inline-block;
+  transition-duration: 0.3s;
+  width: 16px;
+  height: 16px;
+  content: '';
+  box-shadow:0px 1px 1px grey;
+  margin-left: 10px;
+ 
+}
+.input-authorize-value + label:before {
+  background-color: #fafafa;
+  border: 1px solid grey;
+  display: inline-block;
+  transition-duration: 0.3s;
+  width: 16px;
+  height: 16px;
+  content: '';
+  box-shadow:0px 2px 1px grey;
+  margin-right: 15px;
+ 
+}
+.input-checkbox-value:checked + label:after {
+  background: white;
+  color: #19db19;
+  content: "✓";
+  text-align: center;
+  font-weight:bold;
+}
+.input-authorize-value:checked + label:before {
+  background: white;
+  color: #19db19;
+  content: "✓";
+  text-align: center;
+  font-weight:bold;
+}
+.bank_account_container{
+  border-radius: 20px;
+  border: 1px solid #dfdfdf;
+  width: 420px;
+  padding: 10px 30px;
+  box-shadow: 0px 2px 4px 2px #a19f9f;
+  height: 100%;
+  margin: 15px 0px;
+}
+.child {
+  display: inline-block;
+}
+.child:last-child .comma {
+  display: none;
+}
+.bank-icon{    
+   width:200px;
+}
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background:grey;
+}
+.discover__accounts__list___item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid $borderColor;
+    border-radius: 5px;
+    padding: 25px;
+    margin-bottom: 30px;
+    position: relative;
+  }
+
+  .discover__accounts__list___item:last-child {
+    margin-bottom: 0px;
+  }
+  
+  .discover__accounts__list {
+    padding: 40px 0px;
+  }
+  
+  .account__list__item-logo-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .account__list__item-logo-section::after {
+    content: "";
+    width: 1px;
+    height: 40px;
+    background: #dcdcdc;
+    margin-left: 30px;
+    margin-right: 30px;
+    display: inline-block;
+  }
+  .otp-btn{
+    padding: 2px 10px;
+    margin-left: 15px;
+    font-size: 14px;
+  }
+  .account__list__item_image {
+    max-width: 35px;
+  }
+  .link-account{
+    float: right;
+    margin-top: -20px;
+  }
+  .link-text{
+    color: #85be2d;
+    font-weight: bold;
+    font-size:16px
+  }
+  .account__list__item__name {
+    font-size: 18px;
+    color: $primaryTextColor;
+    margin: 5px 15px;
+  }
+  
+  .account__list__item__fis {
+    color: $primaryTextColor;
+  }
+  
+  .discover__accounts__list__validateing {
+    display: flex;
+  }
+  
+  .account__identifier-left-label {
+    font-size: 16px;
+    color: $secondaryTextColor;
+  }
+  
+  .account__identifier-input {
+    border: none;
+    padding-right: 20px;
+    border-bottom: 1px solid $borderColor;
+    font-size: 16px;
+    color: $primaryTextColor;
+  }
+  
+  .account_list-input {
+    padding-right: 70px;
+  }
+  
+  .account__list__item-logo {    
+    min-width: 130px;
+  }
+  
+  .discover__accounts__list__validateing-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    width:100%;
+  }
+  
+  .discover__link-submit {
+    border: 1px solid $linkColor;
+    padding: 7px 18px 7px 18px;
+    border-radius: 5px;
+    background: #ffffff;
+    font-size: 14px;
+    color: $linkColor;
+    cursor: pointer;
+    margin-left: 40px;
+  }
+  
+  .form__error-text {
+    color: #f26c63 !important;
+  }
+  
+  .discover__link-cancel {
+    font-size: 14px;
+    color: $linkColor;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .input-non-editable {
+    border-bottom: none;
+    pointer-events: none;
+  }
+  
+  .discover__accounts__status-text {
+    position: absolute;
+    color: $linkColor;
+  }
+  
+  .account__link-success-msg {
+    padding-left: 40px;
+    display: flex;
+    align-items: center;
+  }
+  .account__link-success-msg-text {
+    color: #a3d66d;
+    padding-left: 10px;
+  }
+  
+  .enter-otp ::ng-deep .otp-input {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #979797;
+    font-size: 20px;
+    color: $primaryTextColor;
+    width: 24px;
+    height: auto;
+    button {
+      display: none;
+    }
+  }
+  
+  .enter-otp ::ng-deep button {
+    display: none;
+  }
+  
+  .otp-timer {
+    padding-bottom: 5px !important;
+  }
+  
+  .button-section {
+    display: flex;
+    align-items: center;
+  }
+
+  .discover__accounts__form ::ng-deep .otp-block{
+    @media(max-width: 767px){
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .accounts-container{
+      margin:20px 0px;
+    }
+   
+    .bank_account_container{
+      width:360px;
+    }
+    .card-layout{
+      width: 330px !important;
+    }
+    .discover__accounts__list___item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 400px;
+    }
+    .account__list__item-logo {
+      display: flex;
+      padding-bottom: 40px;
+    }
+    .account__list__item-logo-section::after {
+      display: none;
+    }
+    .discover__accounts__list__validating-form-elements {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .button-section {
+      padding-top: 30px !important;
+      justify-content: flex-end;
+    }
+    .account__link-success-msg {
+      padding-left: 0;
+    }
+    .discover__accounts__list__validateing-form {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .account__linking-form-status {
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    .form__account-logo-info {
+      padding-left: 10px;
+    }
+    .account__linking__form-staus-logo {
+      width: 30px;
+    }
+  }
+
+    //accotun linking flow form styles end here
+
+    .discover__accounts__list__validating-form-elements{
+      display: flex;
+      align-items: center;
+    }
+    
+.no-identifiers-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.consent-action-popup { 
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.consent-action-popup-heading {
+  color: #000;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 10px;
+  width:90%;
+}
+
+.consent-action-popup-vpin-section {
+  border: 1.5px solid #005b9f;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 1px 1px 1px #005b9f;
+  margin-bottom: 5px;
+}
+
+.consent-popup-forgot-section {
+  color: #0080ff;
+}
+
+.consent-action-button {
+  align-self: center;
+  margin-top: 10px;
+  border-radius: 10px;
+  width: 100px;
+  background-color: #0080ff;
+  font-size: 14px;
+}
+.card-layout{
+  box-shadow: 1px 2px 2px 3px rgb(133, 124, 124);
+  border-radius: 2px;
+  background: white;
+  width: 500px;
+  padding: 10px 15px;
+}
+.close-btn{
+  margin-top:-18px
+}
+.close-btn-icon{
+  width: 50px;
+}
+@media (max-width:480px){
+  .bank_account_container{
+    width:360px;
+    margin: 15px -8px;
+  }
+}
