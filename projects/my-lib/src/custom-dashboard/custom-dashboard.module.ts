@@ -14,6 +14,13 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
  import { LoginComponent } from '../app/pages/login/login.component';
 import { FormComponent } from '../app/util-components/form/form.component';
+import { CustomOtpComponent } from '../app/util-components/custom-otp/custom-otp.component';
+import { VerifyMobileNumberComponent } from '../app/components/verify-mobile-number/verify-mobile-number.component';
+import { CustomOverlayComponent } from '../app/components/custom-overlay/custom-overlay.component';
+import { LinkingStepperComponent } from '../app/pages/account-link/linking-stepper/linking-stepper.component';
+import { DiscoverAccountComponent } from '../app/pages/account-link/components/discover-account/discover-account.component';
+import { DiscoverAccountsComponent } from '../app/pages/account-link/components/discover-accounts/discover-accounts.component';
+import { FiSmallCardComponent } from '../app/components/fi-small-card/fi-small-card.component';
 // import { EnvService } from 'onemoney-headless-websdk/lib/env.service';
 
 
@@ -40,9 +47,13 @@ import { FormComponent } from '../app/util-components/form/form.component';
     ToastComponent,
     LoginComponent,
     FormComponent,
-    
-          
-
+    CustomOtpComponent,
+    VerifyMobileNumberComponent,
+    CustomOverlayComponent,
+    LinkingStepperComponent,
+    DiscoverAccountComponent,
+    DiscoverAccountsComponent,
+    FiSmallCardComponent
   ],
   providers: [OnemoneyWebsdkService,],
   exports: [

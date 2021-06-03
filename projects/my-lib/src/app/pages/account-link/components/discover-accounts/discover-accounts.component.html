@@ -6,7 +6,7 @@
       <div class="d-flex">
         <img src="{{ acc?.itm.smallUrl }}" onerror="this.onerror=null;this.src='assets/images/svgs/fi.svg';"
           class="account__list__item_image" alt="FI - Logo" />
-        <div class="account__list__item__name">{{acc?.fipId | capitalize}}</div>
+        <div class="account__list__item__name">{{acc?.fipId}}</div>
 
       </div>
       <div class="mt-10 d-flex" *ngFor="let itm of acc.itm;let j=index">
@@ -14,8 +14,7 @@
           <input type="checkbox" class="input-checkbox-value" id="discovered{{i}}{{j}}"
             (click)="accountCheck($event,accRefNumber,i,j,'discoveredAccounts')" />
           <label for="discovered{{i}}{{j}}">{{(acc?.itm[j].accType == "DEFAULT" ? "TERM DEPOSIT" :
-            acc?.itm[j].accType) |
-            capitalize}} Account No :
+            acc?.itm[j].accType)}} Account No :
             <span> {{acc?.itm[j].maskedAccNumber}}</span></label>
         </div>
 
@@ -31,12 +30,13 @@
     <div *ngIf="displayOTP[i]">
       <div class="d-flex">
         <b>{{'app.otp'|translate}}: </b>
-        <app-custom-otp [settings]="settings" (inputChange)="onInputChange($event)"  (keydown)="keyDownFunction($event,i)"></app-custom-otp>
+        <app-custom-otp [settings]="settings" (inputChange)="onInputChange($event)"
+          (keydown)="keyDownFunction($event,i)"></app-custom-otp>
         <button id="sendotp" class="primary__button cursor--pointer otp-btn" (click)="sendOtp(i)"
           type="submit">{{'app.submit'|translate}}</button>
 
       </div>
-      <div class="error-msg"  *ngIf="submitted && (!enteredOtp || enteredOtp.length < settings.length)">
+      <div class="error-msg" *ngIf="submitted && (!enteredOtp || enteredOtp.length < settings.length)">
         {{ 'app.pleaseEnterValidOTP' | translate }}
       </div>
       <div class="mt-5">
@@ -63,19 +63,19 @@
     <div *ngIf="showDetail">
       <div *ngFor="let cd of consentDetails;let i=index" class="card-layout mt-10">
         <div>
-          <div class="mt-5"><b>Purpose: </b> <span> {{cd.Purpose.text | capitalize}}</span></div>
+          <div class="mt-5"><b>Purpose: </b> <span> {{cd.Purpose.text}}</span></div>
           <div class="mt-5"><b>Account Type: </b>
-            <span *ngFor="let fiType of cd.fiTypes" class="child"> {{fiType | capitalize}}
+            <span *ngFor="let fiType of cd.fiTypes" class="child"> {{fiType}}
               <span class="comma"> ,</span></span>
           </div>
           <div class="mt-5"><b>Date Range: </b> <span>from {{cd.FIDataRange.from | date:'dd MMM
               yyyy' }} </span><span> to {{cd.FIDataRange.to | date:'dd MMM
               yyyy' }} </span></div>
           <div class="mt-5"><b>Data Type: </b>
-            <span *ngFor="let consentType of cd.consentTypes" class="child"> {{consentType |
-              capitalize }} <span class="comma"> ,</span> </span>
+            <span *ngFor="let consentType of cd.consentTypes" class="child"> {{consentType }} <span class="comma">
+                ,</span> </span>
           </div>
-          <div class="mt-5"><b>Frequency Of Data Pull: </b> <span> {{cd.fetchType | capitalize}}</span></div>
+          <div class="mt-5"><b>Frequency Of Data Pull: </b> <span> {{cd.fetchType}}</span></div>
           <div class="mt-5"><b>Consent Valid upto: </b> <span> {{cd.consentExpiry| date:'dd MMM
               yyyy' }}</span></div>
           <div class="mt-5"><b>Data Life: </b> <span> {{cd.DataLife.value}} {{cd.DataLife.unit}}</span></div>
@@ -94,7 +94,7 @@
         <div class="d-flex">
           <img src="{{ linkedAc?.itm.smallUrl}}" onerror="this.onerror=null;this.src='assets/images/svgs/fi.svg';"
             class="account__list__item_image" alt="FI - Logo" />
-          <div class="account__list__item__name">{{linkedAc?.fipId | capitalize}}</div>
+          <div class="account__list__item__name">{{linkedAc?.fipId}}</div>
 
         </div>
         <div class="mt-10 d-flex" *ngFor="let itm of linkedAc.itm;let j=index">
@@ -102,8 +102,7 @@
             <input type="checkbox" class="input-checkbox-value" id="linked{{k}}{{j}}"
               (click)="accountCheck($event,accRefNumber,k,j,'LinkedAccount')" />
             <label for="linked{{k}}{{j}}">{{(linkedAc?.itm[j].accType == "DEFAULT" ? "TERM DEPOSIT" :
-              linkedAc?.itm[j].accType) |
-              capitalize}} Account No :
+              linkedAc?.itm[j].accType) }} Account No :
               <span> {{linkedAc?.itm[j].maskedAccNumber}}</span></label>
           </div>
 
@@ -131,22 +130,24 @@
 <app-custom-overlay class="action__dialog" *ngIf="showVpinPopup">
   <div class="consent-action-popup">
     <div class="d-flex">
-      <div class="consent-action-popup-heading">{{ 'app.enterYourOtp' | translate}} 
+      <div class="consent-action-popup-heading">{{ 'app.enterYourOtp' | translate}}
       </div>
       <div class="close-btn cursor--pointer" title="close" (click)="closeVpinPopup()">
-        <img class="close-btn-icon" src="../../../../../assets/images/pngs/close-button.png"></div>
+        <img class="close-btn-icon" src="../../../../../assets/images/pngs/close-button.png">
+      </div>
     </div>
     <div class="consent-action-popup-vpin-section">
       <div class="opt__container">
         <app-custom-otp [settings]="settings" (inputChange)="onPinChange($event)"></app-custom-otp>
-        
+
       </div>
     </div>
     <div class="error-msg otp__error"
-          *ngIf="consentActionSubmitted && ( !consentActionOtp || consentActionOtp.length < settings.length)">
-          {{ 'app.pleaseEnterValidOTP' | translate }}
-        </div>
-    <div class="consent-popup-forgot-section  cursor--pointer" id="resendOTPId" (click)="sendConsentOTP()">{{ 'app.resendOTP' |
+      *ngIf="consentActionSubmitted && ( !consentActionOtp || consentActionOtp.length < settings.length)">
+      {{ 'app.pleaseEnterValidOTP' | translate }}
+    </div>
+    <div class="consent-popup-forgot-section  cursor--pointer" id="resendOTPId" (click)="sendConsentOTP()">{{
+      'app.resendOTP' |
       translate}}</div>
     <button class="custom-btn btn-primary consent-action-button cursor--pointer" id="submitOTPId" type="submit"
       (click)="performAction()">

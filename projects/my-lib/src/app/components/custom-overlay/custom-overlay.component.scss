@@ -1,0 +1,39 @@
+.custom__overlay {
+    position: fixed;
+    z-index: 2001;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .overlay__container {
+        position: relative;
+        min-width: 300px;
+        max-width: 520px;
+    }
+    .overlay__template {
+        position: relative;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 30px;
+        background: #FFFFFF;
+        box-shadow: 5px 5px 30px 0 rgba(34,34,34,0.15);
+    }
+}
+
+.overlay__container {
+    padding: 0px !important;
+    max-width: 375px !important;
+}
+
+.overlay__template {
+    padding: 0px 0px 15px 0px !important;
+    margin: 0px !important;
+}

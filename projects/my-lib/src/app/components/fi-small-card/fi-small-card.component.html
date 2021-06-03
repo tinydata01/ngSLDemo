@@ -1,0 +1,29 @@
+<section class="fi__small__card">
+    <div class="main">
+        <div class="fi__small__card--icon">
+            <img src="{{massagedCardData.smallUrl}}" alt="FI-logo"
+                onerror="this.onerror=null;this.src='assets/images/svgs/fi.svg';this.classList.add('full__width--image')" />
+        </div>
+        <div class="fi__small__card--data">
+            <div class="fi-heading">
+                {{ massagedCardData.fipName}}
+            </div>
+            <div class="content ellipsis" *ngIf="isConsentDetails">
+                {{ "app."+massagedCardData.fiType }}
+            </div>
+            <div class="content ellipsis" [class.color666]="isConsentDetails">
+                {{massagedCardData.maskedAccNumber}}
+            </div>
+            <div class="content" *ngIf="massagedCardData.joinedFIs">
+                {{ massagedCardData.joinedFIs: 'fitypes' }}
+            </div>
+        </div>
+    </div>
+    <div *ngIf="needReqData && (massagedCardData.requireIds && massagedCardData.requireIds.length)"
+        class="fi__small__card--req">
+        {{ 'app.requires' }} {{ "app."+massagedCardData.requireIds }}
+    </div>
+    <div class="text-coming" *ngIf="massagedCardData.fipStatus == 'DISABLED'">
+        {{ 'app.comingsoon' }}
+    </div>
+</section>

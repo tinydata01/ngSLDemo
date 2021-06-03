@@ -25,7 +25,12 @@ declare var window: any;
 export class LoginComponent implements OnInit {
   loginForm: any;
   consentId: any;
-  logInData: any;
+  logInData = {
+    code: "",
+    otp_reference: "7ff51816-b2b3-47ac-9b36-7430a84c6c08",
+    url: "login",
+    username: "9032098230",
+  }
 
   constructor(
     public formDefinationService: FormDefinationService,
@@ -45,6 +50,7 @@ export class LoginComponent implements OnInit {
     numbersOnly: true,
     timer: 30
   };
+
   onOtpChange(e) {
     if (e.length == this.settings.length) {
       // e will emit values entered as otp and,

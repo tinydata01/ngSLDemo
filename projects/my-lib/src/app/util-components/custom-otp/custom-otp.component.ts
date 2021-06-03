@@ -39,7 +39,12 @@ export class CustomOtpComponent implements OnInit, OnChanges, AfterViewInit {
   //     this.reset = value.reset;
   //   }
   // }
-  @Input('settings') settings;
+  @Input('settings') settings = {
+    length: 6,
+    numbersOnly: true,
+    reset: false,
+    timer: 30,
+  };
   /**
    * Event triggered on input value 
    */

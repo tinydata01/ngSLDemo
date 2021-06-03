@@ -5,7 +5,7 @@
     border-radius: 0;
     border-bottom: 1px solid #979797;
     font-size: 20px;
-    color: $primaryTextColor;
+    color: #222222;
     width: 35px!important;
     height: auto;
     text-align: center;
@@ -13,6 +13,10 @@
     button {
         display: none;
     }
+}
+
+.center{
+    text-align: center;
 }
 
 // .otp-input {

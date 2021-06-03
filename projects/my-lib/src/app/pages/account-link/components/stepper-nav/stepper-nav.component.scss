@@ -94,9 +94,9 @@
         }
     }
     &.active {
-        color: $linkColor;
+        color: #079AFF;
         &::after {
-            background-color: $linkColor;
+            background-color: #079AFF;
         }
     }
 }

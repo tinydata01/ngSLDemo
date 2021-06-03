@@ -1,0 +1,30 @@
+<div>
+  
+  <div>
+    <div class="">
+      <div class="otp-header">
+        <div class="confirm__text">
+          {{'app.confirm'| translate }}
+        </div>
+  
+      </div>
+      <div class="custom-container">
+       
+        <app-custom-otp [settings]="settings" (inputChange)="onInputChange($event)" (keydown)="keyDownFunction($event)"></app-custom-otp>
+           <div class="confirm__mobile mt-5 center">
+          {{ 'app.verificationcode' | translate: { userNumber:userMobileNumber } }}
+        </div>
+      <div class="error-msg" *ngIf="submitted && (!enteredOtp || enteredOtp.length < settings.length)">
+        {{ 'app.pleaseEnterValidOTP' | translate }}
+      </div>
+      <button id="continuebtn-confirmotp" class="primary__button cursor--pointer btn-center btn-custom-style w-100 mt-5" (click)="sendOtp()" type="submit">{{'app.otpContinue'|translate}}</button>
+        <div class="mt-5">{{'app.continuemessage'| translate : { companyName: bankName } }}</div>
+      </div>
+      <div class="forgot-pin-text text-primary center cursor--pointer" id="forgot-text" type="submit"  (click)="resendOtp()">
+        {{ 'app.resend' | translate }}
+      </div>
+     
+    </div>
+  </div>
+
+</div>

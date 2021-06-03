@@ -1,0 +1,101 @@
+@import "~src/styles.scss";
+
+.wish-text {
+  font-size: 18px;
+  color: #079AFF;
+}
+
+.otp-header {
+  color: white;
+  padding: 10px 20px;
+  background: #005b9f;
+  text-align: center;
+}
+
+.custom-container{
+  padding: 10px 20px;
+}
+.btn-center{
+  border-radius: 0px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.otp-container{
+  width: 327px;
+  border-radius: 0px;
+  box-shadow: 0px 0px 2px 0px;
+  height: 255px;
+  position: absolute;
+  top: 200px;
+  z-index: 9999;
+  background: white;
+  margin-left: 87px;
+  margin-right: auto
+}
+
+.enter-otp ::ng-deep .otp-input {
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #979797;
+  font-size: 20px;
+  color: #222222;
+  width: 40px;
+  height: auto;
+  button {
+    display: none;
+  }
+}
+
+.enter-otp ::ng-deep button {    
+   display: none;
+  }
+
+  .otp-timer{
+    padding-bottom: 15px;
+  }
+
+  .error-msg{
+      text-align: right;
+      padding-right: 0;
+      font-size: 14px ;
+  }
+
+  .error__msg--container{
+      min-height: 23px;
+  }
+
+  @media (max-width:767px){
+    .otp-header{
+      margin-top: -18px;
+    }
+  }
+
+.w-100 {
+    width: 100%;
+}
+.btn-custom-style {
+    box-shadow: 1px 0px 6px 0px dimgrey !important;
+}
+.mt-5 {
+    margin-top: 5px;
+}
+.cursor--pointer {
+    cursor: pointer;
+}
+.primary__button {
+    background-color: #079AFF;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 35px;
+    border: none;
+    border-radius: 3px;
+}
+
+.text-primary {
+  color: #079AFF;
+}
+
+.center{
+  text-align: center;
+}
