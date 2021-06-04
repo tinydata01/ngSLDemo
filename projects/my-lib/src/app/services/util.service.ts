@@ -6,11 +6,11 @@ import jwt_decode from "jwt-decode";
     providedIn: 'root'
 })
 export class utilService {
-    
-    activeBankPanel =new BehaviorSubject(null);
-    selectedItems =  new Subject<any>();
+
+    activeBankPanel = new BehaviorSubject(null);
+    selectedItems = new Subject<any>();
     constructor() { }
-  
+
 
     /**
      * @desc To generate a sessionId token which is of UUID format
@@ -79,7 +79,7 @@ export class utilService {
             } else if ((user.indexOf("mozilla/7.0") > -1) || (user.indexOf("netscape6") != -1) || (user.indexOf("mozilla/4.7") != -1) || (user.indexOf("mozilla/4.78") != -1) || (user.indexOf("mozilla/4.08") != -1) || (user.indexOf("mozilla/3") != -1)) {
                 //browser=(userAgent.substring(userAgent.indexOf("MSIE")).split(" ")[0]).replace("/", "-");
                 browser = "Netscape-?";
-    
+
             } else if (user.includes("firefox")) {
                 browser = (userAgent.substring(userAgent.indexOf("Firefox")).split(" ")[0]).replace("/", "-");
             } else if (user.includes("rv")) {
@@ -107,7 +107,7 @@ export class utilService {
             return null;
         }
     }
-    
+
     /**
      * @desc To set an item in local storage (key, value) pair
      * @param   key
@@ -140,12 +140,12 @@ export class utilService {
     removeItemFromLocalStorage(key: string): void {
         localStorage.removeItem(key);
     }
-    
+
     /**
      * @description To get Active Bank Account Panel in Accordion
      * @returns string [value of userAccountID]
      */
-    getActiveBankPanel():BehaviorSubject<string>{
+    getActiveBankPanel(): BehaviorSubject<string> {
         return this.activeBankPanel;
     }
 
@@ -153,13 +153,13 @@ export class utilService {
      * @description To set Active Bank Account Panel in Accordion
      * @returns void
      */
-    setActiveBankPanel(activeBankPanel):void{
+    setActiveBankPanel(activeBankPanel): void {
         this.activeBankPanel.next(activeBankPanel);
     }
 
     searchElement(array, searchValue, key?) {
         let res = array.filter((elem) => {
-            if(key) {
+            if (key) {
                 elem = elem[key];
             }
             elem = elem.toLowerCase();
@@ -169,18 +169,18 @@ export class utilService {
         return res;
     }
 
-    searchElementBasedOnFilter(array,searchValue,filterValue,filterProperty,key?){
+    searchElementBasedOnFilter(array, searchValue, filterValue, filterProperty, key?) {
         let res = array;
-        if(filterValue){
-            res = array.filter( elem => {
+        if (filterValue) {
+            res = array.filter(elem => {
                 return elem[filterProperty] == filterValue;
             });
         }
-        if(key){
-            res = this.searchElement(res,searchValue,key)
+        if (key) {
+            res = this.searchElement(res, searchValue, key)
         }
         res = res.filter((elem) => {
-            if(key) {
+            if (key) {
                 elem = elem[key];
             }
             elem = elem.toLowerCase();
@@ -189,7 +189,7 @@ export class utilService {
         });
         return res;
     }
-    
+
     searchString(string, searchValue) {
         return string.includes(searchValue);
     }
@@ -198,6 +198,6 @@ export class utilService {
 /**
  * This function is used to replace all the matched string with the replacemnet text
  */
- /* replaceAll(target, search, replacement) {
-    return target.replace(new RegExp(search, 'g'), replacement);
+/* replaceAll(target, search, replacement) {
+   return target.replace(new RegExp(search, 'g'), replacement);
 }*/

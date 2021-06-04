@@ -11,8 +11,7 @@
       </div>
       <div class="mt-10 d-flex" *ngFor="let itm of acc.itm;let j=index">
         <div class="checkbox">
-          <input type="checkbox" class="input-checkbox-value" id="discovered{{i}}{{j}}"
-            (click)="accountCheck($event,accRefNumber,i,j,'discoveredAccounts')" />
+          <input type="checkbox" class="input-checkbox-value" id="discovered{{i}}{{j}}" />
           <label for="discovered{{i}}{{j}}">{{(acc?.itm[j].accType == "DEFAULT" ? "TERM DEPOSIT" :
             acc?.itm[j].accType)}} Account No :
             <span> {{acc?.itm[j].maskedAccNumber}}</span></label>
@@ -60,25 +59,29 @@
   <div>
     <!-- <span class="d-flex justify__content--end link-content" *ngIf="!showDetail" (click)="showConsentDetail()">{{'app.show'|translate}} {{'app.consentDetail'|translate}}</span>
     <span class="d-flex justify__content--end link-content" *ngIf="showDetail" (click)="hideConsentDetail()">{{'app.hide'|translate}} {{'app.consentDetail'|translate}}</span> -->
-    <div *ngIf="showDetail">
-      <div *ngFor="let cd of consentDetails;let i=index" class="card-layout mt-10">
+    <div>
+      <!-- <div *ngFor="let cd of consentDetails;let i=index" class="card-layout mt-10"> -->
+      <div class="card-layout mt-10">
         <div>
-          <div class="mt-5"><b>Purpose: </b> <span> {{cd.Purpose.text}}</span></div>
-          <div class="mt-5"><b>Account Type: </b>
-            <span *ngFor="let fiType of cd.fiTypes" class="child"> {{fiType}}
-              <span class="comma"> ,</span></span>
+          <div class="mt-5"><b>Purpose: </b> <span>Wealth management service</span></div>
+          <div class="mt-5"><b>Account Type:</b>
+            <span class="child"> Deposit ,Term-deposit ,Recurring_deposit</span>
+            <!-- <span *ngFor="let fiType of cd.fiTypes" class="child"> {{fiType}}
+              <span class="comma"> ,</span></span> -->
           </div>
-          <div class="mt-5"><b>Date Range: </b> <span>from {{cd.FIDataRange.from | date:'dd MMM
+          <div class="mt-5"><b>Date Range: </b> from 02 Jun 2020 to 03 Jun 2021
+            <!-- <span>from {{cd.FIDataRange.from | date:'dd MMM
               yyyy' }} </span><span> to {{cd.FIDataRange.to | date:'dd MMM
-              yyyy' }} </span></div>
-          <div class="mt-5"><b>Data Type: </b>
-            <span *ngFor="let consentType of cd.consentTypes" class="child"> {{consentType }} <span class="comma">
-                ,</span> </span>
+              yyyy' }} </span> -->
           </div>
-          <div class="mt-5"><b>Frequency Of Data Pull: </b> <span> {{cd.fetchType}}</span></div>
-          <div class="mt-5"><b>Consent Valid upto: </b> <span> {{cd.consentExpiry| date:'dd MMM
-              yyyy' }}</span></div>
-          <div class="mt-5"><b>Data Life: </b> <span> {{cd.DataLife.value}} {{cd.DataLife.unit}}</span></div>
+          <div class="mt-5"><b>Data Type: </b>
+            <!-- <span *ngFor="let consentType of cd.consentTypes" class="child"> {{consentType }} <span class="comma">
+                ,</span> </span> -->
+            <span class="child">Transactions ,Profile ,Summary</span>
+          </div>
+          <div class="mt-5"><b>Frequency Of Data Pull: </b> <span> Onetime</span></div>
+          <div class="mt-5"><b>Consent Valid upto: </b> <span> 03 Jun 2022</span></div>
+          <div class="mt-5"><b>Data Life: </b> <span> 1 YEAR</span></div>
         </div>
 
       </div>
@@ -99,8 +102,7 @@
         </div>
         <div class="mt-10 d-flex" *ngFor="let itm of linkedAc.itm;let j=index">
           <div class="checkbox">
-            <input type="checkbox" class="input-checkbox-value" id="linked{{k}}{{j}}"
-              (click)="accountCheck($event,accRefNumber,k,j,'LinkedAccount')" />
+            <input type="checkbox" class="input-checkbox-value" id="linked{{k}}{{j}}" />
             <label for="linked{{k}}{{j}}">{{(linkedAc?.itm[j].accType == "DEFAULT" ? "TERM DEPOSIT" :
               linkedAc?.itm[j].accType) }} Account No :
               <span> {{linkedAc?.itm[j].maskedAccNumber}}</span></label>
@@ -146,7 +148,7 @@
       *ngIf="consentActionSubmitted && ( !consentActionOtp || consentActionOtp.length < settings.length)">
       {{ 'app.pleaseEnterValidOTP' | translate }}
     </div>
-    <div class="consent-popup-forgot-section  cursor--pointer" id="resendOTPId" (click)="sendConsentOTP()">{{
+    <div class="consent-popup-forgot-section  cursor--pointer" id="resendOTPId">{{
       'app.resendOTP' |
       translate}}</div>
     <button class="custom-btn btn-primary consent-action-button cursor--pointer" id="submitOTPId" type="submit"

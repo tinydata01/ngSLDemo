@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./discover-accounts.component.scss"]
 })
 export class DiscoverAccountsComponent implements OnInit {
-  @ViewChild("mycheckbox",{static:false})  mycheckbox;
+  @ViewChild("mycheckbox", { static: false }) mycheckbox;
   accountsData: any
   FIs: any = [];
   userMobileNumber: any;
@@ -22,6 +22,7 @@ export class DiscoverAccountsComponent implements OnInit {
   btnDisabled: boolean = true;
   @Input() discoveredAccountsLength: any;
   @Input() discoveredAccounts: any;
+
   @Input() set selectedFIs(value: any) {
     if (value) {
       // this.getDiscoveredAccounts(value);
@@ -42,12 +43,12 @@ export class DiscoverAccountsComponent implements OnInit {
   bankName: string;
   constructor(private httpService: HttpService, private linkingStepper: LinkingStepperHelperService, private router: Router,
     private loader: LoaderService, private oneMoneyService: OnemoneyWebsdkService, private userService: UserService) {
-    this.bankName = this.userService.data["bankName"];
+    this.bankName = 'HDFC';
   }
 
   linkedAccountsLength = 0;
   ngOnInit() {
-    this.getListOfLinkedAccounts();
+    // this.getListOfLinkedAccounts();
     this.userMobileNumber = localStorage.getItem("mobileNumber");
     this.vuaData = localStorage.getItem("vuaData");
     this.getRequestConsent();
@@ -292,7 +293,7 @@ export class DiscoverAccountsComponent implements OnInit {
   closeVpinPopup() {
     this.showVpinPopup = false;
     this.consentActionSubmitted = false;
-    
+
   }
   redirectMe: boolean = false;
   consentHandle: any = [];
@@ -341,7 +342,7 @@ export class DiscoverAccountsComponent implements OnInit {
           })
       }
     }
-    else{
+    else {
       this.loader.showToast(toastStatuses.ERROR, 'somethingWentWrongUnableToUpdateConsentStatus');
     }
   }
@@ -393,17 +394,17 @@ export class DiscoverAccountsComponent implements OnInit {
     })
   }
   getRequestConsent() {
-    this.httpService.requestConsent(this.userMobileNumber, this.vuaData).subscribe(res => {
-      if (localStorage.getItem("consentHandle") == "") {
-        localStorage.setItem("consentHandle", res.data.consent_handle);
-        this.showConsentDetail();
-      }
-      else {
-        localStorage.removeItem("consentHandle");
-        localStorage.setItem("consentHandle", res.data.consent_handle);
-        this.showConsentDetail();
-      }
+    // this.httpService.requestConsent(this.userMobileNumber, this.vuaData).subscribe(res => {
+    //   if (localStorage.getItem("consentHandle") == "") {
+    //     localStorage.setItem("consentHandle", res.data.consent_handle);
+    //     this.showConsentDetail();
+    //   }
+    //   else {
+    //     localStorage.removeItem("consentHandle");
+    //     localStorage.setItem("consentHandle", res.data.consent_handle);
+    //     this.showConsentDetail();
+    //   }
 
-    })
+    // })
   }
 }

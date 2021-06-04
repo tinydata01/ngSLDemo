@@ -114,7 +114,7 @@ export class HttpService {
   loading = {};
   activeAPICalls: any;
   apiURL: string = 'https://uat.moneyone.in/finpro_uat/v2/requestconsent';
-  
+
   constructor(
     private http: HttpClient,
     private loader: LoaderService,
@@ -306,7 +306,7 @@ export class HttpService {
     }
     return header;
   }
-  requestConsent(mobileNumber,vua) {
+  requestConsent(mobileNumber, vua) {
     let header;
     header = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -317,7 +317,7 @@ export class HttpService {
       'client_secret': '1e2f04a1ce493c195f8f6f8fa1f0fd146f24ecfa',
       'appIdentifier': 'com.moneyone.app'
     })
-  
+
     let body = {
       accountID: "123456",
       partyIdentifierType: "MOBILE",
@@ -326,20 +326,20 @@ export class HttpService {
       vua: vua
     }
     //return this.http.post('https://uat.moneyone.in/finproadminserver_uat/finpro_admin/v1/v2/requestconsent', body, { headers: header }).pipe(
-     return this.http.post(this.userService.data["finproURL"], body, { headers: header }).pipe(
-      map(res => {
-        let response: any = res;
-        return response;
-      })
-    )
+    //  return this.http.post(this.userService.data["finproURL"], body, { headers: header }).pipe(
+    //   map(res => {
+    //     let response: any = res;
+    //     return response;
+    //   })
+    // )
 
   }
   errorHandler(obj) { }
 
   showThrobber() {
-  //  this.loader.setwebSdkShowMessage("");
+    //  this.loader.setwebSdkShowMessage("");
     this.loader.toggleLoader(true);
-   // this.activeAPICalls++;
+    // this.activeAPICalls++;
   }
 
   hideThrobber() {
@@ -355,5 +355,5 @@ export class HttpService {
       this.loader.showToast(toastStatuses.ERROR, "sessionExpiredPleaseLoginToContinue");
     }
   }
- 
+
 }

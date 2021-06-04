@@ -12,7 +12,7 @@ import { ToastComponent } from '../app/components/toast/toast.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 //import { EmbedVideo } from 'ngx-embed-video';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
- import { LoginComponent } from '../app/pages/login/login.component';
+import { LoginComponent } from '../app/pages/login/login.component';
 import { FormComponent } from '../app/util-components/form/form.component';
 import { CustomOtpComponent } from '../app/util-components/custom-otp/custom-otp.component';
 import { VerifyMobileNumberComponent } from '../app/components/verify-mobile-number/verify-mobile-number.component';
@@ -21,6 +21,7 @@ import { LinkingStepperComponent } from '../app/pages/account-link/linking-stepp
 import { DiscoverAccountComponent } from '../app/pages/account-link/components/discover-account/discover-account.component';
 import { DiscoverAccountsComponent } from '../app/pages/account-link/components/discover-accounts/discover-accounts.component';
 import { FiSmallCardComponent } from '../app/components/fi-small-card/fi-small-card.component';
+import { FIListComponent } from '../app/pages/account-link/components/fi-list/fi-list.component';
 // import { EnvService } from 'onemoney-headless-websdk/lib/env.service';
 
 
@@ -37,8 +38,8 @@ import { FiSmallCardComponent } from '../app/components/fi-small-card/fi-small-c
     FormsModule,
     ReactiveFormsModule,
     //EmbedVideo.forRoot(),
-    
-    
+
+
   ],
   declarations: [
     CustomDashboardComponent,
@@ -53,7 +54,8 @@ import { FiSmallCardComponent } from '../app/components/fi-small-card/fi-small-c
     LinkingStepperComponent,
     DiscoverAccountComponent,
     DiscoverAccountsComponent,
-    FiSmallCardComponent
+    FiSmallCardComponent,
+    FIListComponent
   ],
   providers: [OnemoneyWebsdkService,],
   exports: [
@@ -63,7 +65,7 @@ import { FiSmallCardComponent } from '../app/components/fi-small-card/fi-small-c
     ToastComponent,
     RouterModule,
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
 
