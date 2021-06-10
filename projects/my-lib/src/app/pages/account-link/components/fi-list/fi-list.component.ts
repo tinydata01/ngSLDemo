@@ -13,85 +13,86 @@ import { MyLibService as OnemoneyWebsdkService } from '../../../../../lib/my-lib
 export class FIListComponent implements OnInit {
   @Output() selectedFI: EventEmitter<any> = new EventEmitter();
   @Input() filterData?: any;
-  @Input() fiData: any = [
-    {
-      FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
-      code: "INDUSIND",
-      discoverOTP: false,
-      fipID: "INDUSIND",
-      fipName: "IndusInd Bank Ltd.",
-      fipStatus: "ENABLED",
-      identifiers: [{
-        identifier: "MOBILE",
-        identifierType: "STRONG"
-      }],
-      logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
-      smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
-    },
-    {
-      FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
-      code: "INDUSIND",
-      discoverOTP: false,
-      fipID: "INDUSIND",
-      fipName: "IndusInd Bank Ltd.",
-      fipStatus: "ENABLED",
-      identifiers: [{
-        identifier: "MOBILE",
-        identifierType: "STRONG"
-      }],
-      logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
-      smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
-    },
-    {
-      FIs: ["DEPOSIT", "TERM-DEPOSIT", "RECURRING_DEPOSIT"],
-      code: "aujas_alt_fip",
-      fipID: "aujas_alt_fip",
-      fipName: "Aujas Alt FIP",
-      fipStatus: "ENABLED",
-      identifiers: [{
-        identifier: "MOBILE",
-        identifierType: "STRONG"
-      }],
-    }, {
-      FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
-      code: "INDUSIND",
-      discoverOTP: false,
-      fipID: "INDUSIND",
-      fipName: "IndusInd Bank Ltd.",
-      fipStatus: "ENABLED",
-      identifiers: [{
-        identifier: "MOBILE",
-        identifierType: "STRONG"
-      }],
-      logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
-      smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
-    },
-    {
-      FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
-      code: "INDUSIND",
-      discoverOTP: false,
-      fipID: "INDUSIND",
-      fipName: "IndusInd Bank Ltd.",
-      fipStatus: "ENABLED",
-      identifiers: [{
-        identifier: "MOBILE",
-        identifierType: "STRONG"
-      }],
-      logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
-      smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
-    },
-    {
-      FIs: ["DEPOSIT", "TERM-DEPOSIT", "RECURRING_DEPOSIT"],
-      code: "aujas_alt_fip",
-      fipID: "aujas_alt_fip",
-      fipName: "Aujas Alt FIP",
-      fipStatus: "ENABLED",
-      identifiers: [{
-        identifier: "MOBILE",
-        identifierType: "STRONG"
-      }],
-    },
-  ];
+  @Input() fiData: any
+  // = [
+  //   {
+  //     FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
+  //     code: "INDUSIND",
+  //     discoverOTP: false,
+  //     fipID: "INDUSIND",
+  //     fipName: "IndusInd Bank Ltd.",
+  //     fipStatus: "ENABLED",
+  //     identifiers: [{
+  //       identifier: "MOBILE",
+  //       identifierType: "STRONG"
+  //     }],
+  //     logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
+  //     smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
+  //   },
+  //   {
+  //     FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
+  //     code: "INDUSIND",
+  //     discoverOTP: false,
+  //     fipID: "INDUSIND",
+  //     fipName: "IndusInd Bank Ltd.",
+  //     fipStatus: "ENABLED",
+  //     identifiers: [{
+  //       identifier: "MOBILE",
+  //       identifierType: "STRONG"
+  //     }],
+  //     logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
+  //     smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
+  //   },
+  //   {
+  //     FIs: ["DEPOSIT", "TERM-DEPOSIT", "RECURRING_DEPOSIT"],
+  //     code: "aujas_alt_fip",
+  //     fipID: "aujas_alt_fip",
+  //     fipName: "Aujas Alt FIP",
+  //     fipStatus: "ENABLED",
+  //     identifiers: [{
+  //       identifier: "MOBILE",
+  //       identifierType: "STRONG"
+  //     }],
+  //   }, {
+  //     FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
+  //     code: "INDUSIND",
+  //     discoverOTP: false,
+  //     fipID: "INDUSIND",
+  //     fipName: "IndusInd Bank Ltd.",
+  //     fipStatus: "ENABLED",
+  //     identifiers: [{
+  //       identifier: "MOBILE",
+  //       identifierType: "STRONG"
+  //     }],
+  //     logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
+  //     smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
+  //   },
+  //   {
+  //     FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
+  //     code: "INDUSIND",
+  //     discoverOTP: false,
+  //     fipID: "INDUSIND",
+  //     fipName: "IndusInd Bank Ltd.",
+  //     fipStatus: "ENABLED",
+  //     identifiers: [{
+  //       identifier: "MOBILE",
+  //       identifierType: "STRONG"
+  //     }],
+  //     logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
+  //     smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
+  //   },
+  //   {
+  //     FIs: ["DEPOSIT", "TERM-DEPOSIT", "RECURRING_DEPOSIT"],
+  //     code: "aujas_alt_fip",
+  //     fipID: "aujas_alt_fip",
+  //     fipName: "Aujas Alt FIP",
+  //     fipStatus: "ENABLED",
+  //     identifiers: [{
+  //       identifier: "MOBILE",
+  //       identifierType: "STRONG"
+  //     }],
+  //   },
+  // ];
 
   FIs: any = []
   searchedFIs: any = [];
@@ -118,15 +119,15 @@ export class FIListComponent implements OnInit {
 
   ngOnInit() {
     this.windowWidth = window.innerWidth;
-    // this.oneMoneyService.getFipList().subscribe(res => {
-    //   this.FIs = res;
-    //   if(res.fipList){
-    //     this.FIs = res['fipList']; //In Divami Environment
-    //   }else{
-    //     this.FIs = res;
-    //   }
-    //   this.searchedFIs = this.FIs;
-    // })
+    this.oneMoneyService.getFipList().subscribe(res => {
+      this.FIs = res;
+      if (res.fipList) {
+        this.FIs = res['fipList']; //In Divami Environment
+      } else {
+        this.FIs = res;
+      }
+      this.searchedFIs = this.FIs;
+    })
   }
 
   @HostListener('window:resize', ['$event'])

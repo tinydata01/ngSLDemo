@@ -15,7 +15,7 @@ export class FiSmallCardComponent implements OnInit {
     this.massagedCardData = this.massageData(value);
   }
   @Input() needReqData: boolean = false;
-  FIPs ;
+  FIPs;
 
   tempCardData = {
     fipID: "2",
@@ -37,24 +37,24 @@ export class FiSmallCardComponent implements OnInit {
     FIs: ["DEPOSIT"]
   };
 
-  constructor(private dataService : DataService, private oneMoneyService: OnemoneyWebsdkService) {}
+  constructor(private dataService: DataService, private oneMoneyService: OnemoneyWebsdkService) { }
 
   ngOnInit() {
-    // this.oneMoneyService.getFipList().subscribe(res => {
-    //     let FIPList  =localStorage.getItem('fips');
-    //     if(!FIPList){
-    //         localStorage.setItem('fips',res)
-    //     }
-    //     this.FIPs = res; 
-    //     (typeof this.FIPs.fipList == "undefined" ? this.FIPs : this.FIPs.fipList).forEach(element => {
-    //         if(this.massagedCardData.fipID == element.fipID){
-    //             this.massagedCardData = {
-    //                 ...this.massagedCardData,
-    //                 ...element
-    //             }
-    //         }
-    //     });
-    // })
+    this.oneMoneyService.getFipList().subscribe(res => {
+      let FIPList = localStorage.getItem('fips');
+      if (!FIPList) {
+        localStorage.setItem('fips', res)
+      }
+      this.FIPs = res;
+      (typeof this.FIPs.fipList == "undefined" ? this.FIPs : this.FIPs.fipList).forEach(element => {
+        if (this.massagedCardData.fipID == element.fipID) {
+          this.massagedCardData = {
+            ...this.massagedCardData,
+            ...element
+          }
+        }
+      });
+    })
   }
 
   massageData(data) {
@@ -65,12 +65,12 @@ export class FiSmallCardComponent implements OnInit {
       let requireIds =
         data.identifiers &&
         data.identifiers.map(id => {
-            // id.identifier
-            if(identifierValues[id.identifier]){
-                return identifierValues[id.identifier]
-            }else{
-                return id.identifier
-            }
+          // id.identifier
+          if (identifierValues[id.identifier]) {
+            return identifierValues[id.identifier]
+          } else {
+            return id.identifier
+          }
         }).join(",");
       return {
         ...data,
@@ -80,11 +80,11 @@ export class FiSmallCardComponent implements OnInit {
     }
   }
 
-//   checkMultipleIdentifier(identifierString){
-//       let identifiers = identifierString.split(',');
-//       if(identifiers.length > 1){
-//           return true;
-//       }
-//       return false;
-//   }
+  //   checkMultipleIdentifier(identifierString){
+  //       let identifiers = identifierString.split(',');
+  //       if(identifiers.length > 1){
+  //           return true;
+  //       }
+  //       return false;
+  //   }
 }

@@ -313,8 +313,8 @@ export class HttpService {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
       'organizationId': 'finprobank',
-      'client_id': 'b113d00c197a5754f2752d049a07fc2652007386',
-      'client_secret': '1e2f04a1ce493c195f8f6f8fa1f0fd146f24ecfa',
+      'client_id': '27cb60c4a421611872b7b352aa7a78c1dfecb1d1',
+      'client_secret': 'ec64eb9efb18d530c52552f2e13d856e0d2ced68',
       'appIdentifier': 'com.moneyone.app'
     })
 

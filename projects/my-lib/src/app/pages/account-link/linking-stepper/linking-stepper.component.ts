@@ -23,91 +23,98 @@ export class LinkingStepperComponent implements OnInit {
   ngOnInit() {
     this.http.showThrobber();
     this.userMobileNumber = localStorage.getItem("mobileNumber");
-    // this.oneMoneyService.getFipList().subscribe(res => {
-    this.FIs = [
-      {
-        FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
-        code: "INDUSIND",
-        discoverOTP: false,
-        fipID: "INDUSIND",
-        fipName: "IndusInd Bank Ltd.",
-        fipStatus: "ENABLED",
-        identifiers: [{
-          identifier: "MOBILE",
-          identifierType: "STRONG"
-        }],
-        logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
-        smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
-      },
-      {
-        FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
-        code: "INDUSIND",
-        discoverOTP: false,
-        fipID: "INDUSIND",
-        fipName: "IndusInd Bank Ltd.",
-        fipStatus: "ENABLED",
-        identifiers: [{
-          identifier: "MOBILE",
-          identifierType: "STRONG"
-        }],
-        logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
-        smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
-      },
-      {
-        FIs: ["DEPOSIT", "TERM-DEPOSIT", "RECURRING_DEPOSIT"],
-        code: "aujas_alt_fip",
-        fipID: "aujas_alt_fip",
-        fipName: "Aujas Alt FIP",
-        fipStatus: "ENABLED",
-        identifiers: [{
-          identifier: "MOBILE",
-          identifierType: "STRONG"
-        }],
-      }, {
-        FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
-        code: "INDUSIND",
-        discoverOTP: false,
-        fipID: "INDUSIND",
-        fipName: "IndusInd Bank Ltd.",
-        fipStatus: "ENABLED",
-        identifiers: [{
-          identifier: "MOBILE",
-          identifierType: "STRONG"
-        }],
-        logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
-        smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
-      },
-      {
-        FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
-        code: "INDUSIND",
-        discoverOTP: false,
-        fipID: "INDUSIND",
-        fipName: "IndusInd Bank Ltd.",
-        fipStatus: "ENABLED",
-        identifiers: [{
-          identifier: "MOBILE",
-          identifierType: "STRONG"
-        }],
-        logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
-        smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
-      },
-      {
-        FIs: ["DEPOSIT", "TERM-DEPOSIT", "RECURRING_DEPOSIT"],
-        code: "aujas_alt_fip",
-        fipID: "aujas_alt_fip",
-        fipName: "Aujas Alt FIP",
-        fipStatus: "ENABLED",
-        identifiers: [{
-          identifier: "MOBILE",
-          identifierType: "STRONG"
-        }],
-      },
-    ];
-    let FIPList = localStorage.getItem('fips');
-    if (!FIPList) {
-      localStorage.setItem('fips', JSON.stringify(this.FIs))
-    }
-    // })
+    // // this.oneMoneyService.getFipList().subscribe(res => {
+    // this.FIs = [
+    //   {
+    //     FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
+    //     code: "INDUSIND",
+    //     discoverOTP: false,
+    //     fipID: "INDUSIND",
+    //     fipName: "IndusInd Bank Ltd.",
+    //     fipStatus: "ENABLED",
+    //     identifiers: [{
+    //       identifier: "MOBILE",
+    //       identifierType: "STRONG"
+    //     }],
+    //     logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
+    //     smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
+    //   },
+    //   {
+    //     FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
+    //     code: "INDUSIND",
+    //     discoverOTP: false,
+    //     fipID: "INDUSIND",
+    //     fipName: "IndusInd Bank Ltd.",
+    //     fipStatus: "ENABLED",
+    //     identifiers: [{
+    //       identifier: "MOBILE",
+    //       identifierType: "STRONG"
+    //     }],
+    //     logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
+    //     smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
+    //   },
+    //   {
+    //     FIs: ["DEPOSIT", "TERM-DEPOSIT", "RECURRING_DEPOSIT"],
+    //     code: "aujas_alt_fip",
+    //     fipID: "aujas_alt_fip",
+    //     fipName: "Aujas Alt FIP",
+    //     fipStatus: "ENABLED",
+    //     identifiers: [{
+    //       identifier: "MOBILE",
+    //       identifierType: "STRONG"
+    //     }],
+    //   }, {
+    //     FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
+    //     code: "INDUSIND",
+    //     discoverOTP: false,
+    //     fipID: "INDUSIND",
+    //     fipName: "IndusInd Bank Ltd.",
+    //     fipStatus: "ENABLED",
+    //     identifiers: [{
+    //       identifier: "MOBILE",
+    //       identifierType: "STRONG"
+    //     }],
+    //     logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
+    //     smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
+    //   },
+    //   {
+    //     FIs: ["DEPOSIT", "RECURRING_DEPOSIT", "TERM-DEPOSIT"],
+    //     code: "INDUSIND",
+    //     discoverOTP: false,
+    //     fipID: "INDUSIND",
+    //     fipName: "IndusInd Bank Ltd.",
+    //     fipStatus: "ENABLED",
+    //     identifiers: [{
+    //       identifier: "MOBILE",
+    //       identifierType: "STRONG"
+    //     }],
+    //     logoUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg",
+    //     smallUrl: "https://www.onemoney.in/docs/img/Induslnd_bank.jpg"
+    //   },
+    //   {
+    //     FIs: ["DEPOSIT", "TERM-DEPOSIT", "RECURRING_DEPOSIT"],
+    //     code: "aujas_alt_fip",
+    //     fipID: "aujas_alt_fip",
+    //     fipName: "Aujas Alt FIP",
+    //     fipStatus: "ENABLED",
+    //     identifiers: [{
+    //       identifier: "MOBILE",
+    //       identifierType: "STRONG"
+    //     }],
+    //   },
+    // ];
+    // let FIPList = localStorage.getItem('fips');
+    // if (!FIPList) {
+    //   localStorage.setItem('fips', JSON.stringify(this.FIs))
+    // }
+    // // })
+    this.oneMoneyService.getFipList().subscribe(res => {
+      this.FIs = res.fipList;
+      let FIPList = localStorage.getItem('fips');
+      if (!FIPList) {
+        localStorage.setItem('fips', JSON.stringify(this.FIs))
+      }
+    })
     console.log(this.FIs);
     let category = "STRONG";
     let type = "MOBILE";

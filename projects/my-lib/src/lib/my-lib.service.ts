@@ -6,23 +6,23 @@ import { Injectable } from '@angular/core';
 
 
 const APINAME = {
-  userProfile: 'user/user-profile',
-  discover: 'sdk/api/v1/accounts/discover',
-  authtrigger: 'sdk/api/v1/account/auth/trigger',
-  accountverify: 'sdk/api/v1/account/auth/verify',
-  loginOTPVerify: 'app/loginwithotp/verify',
-  accountlist: 'sdk/api/v1/linkedaccount/list',
-  discoveredaccountlist: 'sdk/api/v1/discoveredaccount/list',
-  logout: 'user/logout',
-  loginOTPSend: 'app/loginwithotp/send',
-  OTPSend:'app/otp/send',
+  userProfile: 'user/user-profile', //onemoney api
+  discover: 'sdk/api/v1/accounts/discover', //onemoney api
+  authtrigger: 'sdk/api/v1/account/auth/trigger',//onemoney api
+  accountverify: 'sdk/api/v1/account/auth/verify',//onemoney api
+  loginOTPVerify: 'app/loginwithotp/verify',//onemoney api
+  accountlist: 'sdk/api/v1/linkedaccount/list',//onemoney api
+  discoveredaccountlist: 'sdk/api/v1/discoveredaccount/list',//onemoney api
+  logout: 'user/logout',//onemoney api
+  loginOTPSend: 'app/loginwithotp/send',//onemoney api
+  OTPSend: 'app/otp/send',//onemoney api
 
-  verifyvua: 'user/verifyvua',
-  userRegistration: 'user/sdksignupwithotp/send',
-  verifyotp: 'user/sdksignupwithotp/verify',
-  regascorpuser: 'sdk/api/v1/session/init',
-  fipList: 'app/fip',
-  
+  verifyvua: 'verifyvua',//onemoney api
+  userRegistration: 'user/sdksignupwithotp/send',//onemoney api
+  verifyotp: 'user/sdksignupwithotp/verify',//onemoney api
+  regascorpuser: 'sdk/api/v1/session/init',//onemoney api
+  fipList: 'list/fips',//onemoney api
+
 
   // concent approval and rejection.
   customerDashboard: 'app/dashboard',
@@ -34,13 +34,13 @@ const APINAME = {
   consentDeny: 'sdk/api/v1/consent/deny',
   multiAccountlink: 'sdk/api/v1/bulkaccount/auth/trigger',
   //Phase 3 new APIs
-  otpValidate:'app/otp/validate',
-  verifyProfileVua:'user/verifyprofile',
+  otpValidate: 'app/otp/validate',
+  verifyProfileVua: 'user/verifyprofile',
   //discover API 
-  accountdiscover:'sdk/api/v1/accounts/discover/multiplefips'
+  accountdiscover: 'sdk/api/v1/accounts/discover/multiplefips'
 };
 @Injectable({
-  providedIn:'root'
+  providedIn: 'root'
 })
 
 export class MyLibService {
@@ -111,7 +111,7 @@ export class MyLibService {
       };
       const data: any = {
         headers: header,
-        };
+      };
       return this.http
         .request(options.method, options.url, data)
         .pipe(
@@ -134,7 +134,7 @@ export class MyLibService {
       accType: string, accRefNumber: string,
       maskedAccNumber: string, fipId: string, userInfo: {}
     }
-  },          sessionId?: string) {
+  }, sessionId?: string) {
     try {
       if (!account) { throw new Error('Account is required'); }
       const sessionID = sessionId || sessionStorage.getItem('sessionId');
@@ -217,7 +217,7 @@ export class MyLibService {
    * @param phone_number
    */
   loginOTP(organisationId: string, client_id: string, client_secret: string,
-           appIdentifier:[{ appName?:String, appIdentifier: string }], phone_number: string) {
+    appIdentifier: [{ appName?: String, appIdentifier: string }], phone_number: string) {
     try {
       if (!organisationId) { throw new Error('organisationId is required'); }
       const header = new HttpHeaders({
@@ -259,7 +259,7 @@ export class MyLibService {
    * @param code
    */
   loginOTPVerify(organisationId: string, client_id: string, client_secret: string,
-                 appIdentifier: {appName?: string, appIdentifier: string }[], phone_number: string, otp_reference: string, code: string) {
+    appIdentifier: { appName?: string, appIdentifier: string }[], phone_number: string, otp_reference: string, code: string) {
     try {
       if (!organisationId) { throw new Error('Session Id is required'); }
       const header = new HttpHeaders({
@@ -400,9 +400,9 @@ export class MyLibService {
    * @param body
    */
   verifyVua(organisationid: string, clientId: string, clientSecret: string, appIdentifier: { appName?: string, appIdentifier: string }[],
-            body: { vua: string }): any {
+    body: { vua: string }): any {
     try {
-      console.log('in lib service', organisationid,clientId,clientSecret,body,appIdentifier)
+      console.log('in lib service', organisationid, clientId, clientSecret, body, appIdentifier)
       if (!organisationid || !clientId || !clientSecret || !body) { throw new Error('All parameters are required'); }
       const data: any = {
         headers: new HttpHeaders({
@@ -415,7 +415,7 @@ export class MyLibService {
         body: body ? body : null,
       };
       return this.http
-        .request('POST', this.url + APINAME.verifyvua, data)
+        .request('POST', 'https://uat.moneyone.in/finpro_uat/' + APINAME.verifyvua, data)
         .pipe(
           map(res => {
             const response: any = res;
@@ -439,8 +439,9 @@ export class MyLibService {
    * @param body
    */
   userRegistration(organisationid: string, clientId: string, clientSecret: string,
-                   appIdentifier: { appName?: string, appIdentifier: string }[], body: {
-                   name: string, phone_number: string, terms_and_conditions: boolean, vua: string }): any {
+    appIdentifier: { appName?: string, appIdentifier: string }[], body: {
+      name: string, phone_number: string, terms_and_conditions: boolean, vua: string
+    }): any {
     try {
       if (!organisationid || !clientId || !clientSecret || !body) { throw new Error('All parameters are required'); }
       const data: any = {
@@ -474,8 +475,8 @@ export class MyLibService {
    * @param body
    */
   verifyOtp(organisationid: string, clientId: string, clientSecret: string,
-            appIdentifier: { appName?: string, appIdentifier: string }[],
-            body: { phone_number: string, otp_reference: string, code: string }): any {
+    appIdentifier: { appName?: string, appIdentifier: string }[],
+    body: { phone_number: string, otp_reference: string, code: string }): any {
 
     try {
       if (!organisationid || !clientId || !clientSecret || !body) { throw new Error('All parameters are required'); }
@@ -627,9 +628,15 @@ export class MyLibService {
    * @param sessionId
    * @param body
    */
-  approve(body: {consentHandle: string, otp: string, accounts: {type: string, data: {accType: string,
-          accRefNumber: string, maskedAccNumber: string, fipId: string, userInfo: {}}}[]},
-          sessionId?: string): any {
+  approve(body: {
+    consentHandle: string, otp: string, accounts: {
+      type: string, data: {
+        accType: string,
+        accRefNumber: string, maskedAccNumber: string, fipId: string, userInfo: {}
+      }
+    }[]
+  },
+    sessionId?: string): any {
     try {
       const sessionid = sessionId || sessionStorage.getItem('sessionId');
       if (!sessionid || !body) { throw new Error('Session Id is required'); }
@@ -686,7 +693,7 @@ export class MyLibService {
    * @param sessionId
    * @param body
    */
-  consentOTP(body: { actionType: string,identifierValue:string,identifierType:string }, sessionId?: string): any {
+  consentOTP(body: { actionType: string, identifierValue: string, identifierType: string }, sessionId?: string): any {
     try {
       const sessionid = sessionId || sessionStorage.getItem('sessionId');
       if (!sessionid || !body) { throw new Error('Session Id is required'); }
@@ -710,22 +717,25 @@ export class MyLibService {
     }
   }
 
- 
+
   /**
    * Consent Allow
    * @param body
    * @param sessionId
    */
-  consentAllow(body: { consentHandle: string,
+  consentAllow(body: {
+    consentHandle: string,
     accounts: {
-        type: string,
-        data: {
-          accType: string,
-          accRefNumber: string,
-          maskedAccNumber: string,
-          fipId: string,
-          userInfo: {}}
-      }[]}, sessionId?: string): any {
+      type: string,
+      data: {
+        accType: string,
+        accRefNumber: string,
+        maskedAccNumber: string,
+        fipId: string,
+        userInfo: {}
+      }
+    }[]
+  }, sessionId?: string): any {
     try {
       const sessionid = sessionId || sessionStorage.getItem('sessionId');
       if (!sessionid || !body) { throw new Error('Session Id is required'); }
@@ -737,7 +747,7 @@ export class MyLibService {
         body: body ? body : null
       };
       return this.http
-        .request('POST',this.url + APINAME.consentAllow, data)
+        .request('POST', this.url + APINAME.consentAllow, data)
         .pipe(
           map(res => {
             const response: any = res;
@@ -755,7 +765,7 @@ export class MyLibService {
    * @param body
    * @param sessionId
    */
-  consentDeny(body: { consentHandle: string}, sessionId?: string): any {
+  consentDeny(body: { consentHandle: string }, sessionId?: string): any {
     try {
       const sessionid = sessionId || sessionStorage.getItem('sessionId');
       if (!sessionid || !body) { throw new Error('Session Id is required'); }
@@ -785,16 +795,18 @@ export class MyLibService {
    * @param body
    * @param sessionId
    */
-  multiAccountlink(body: { 
+  multiAccountlink(body: {
     accounts: {
-        type: string,
-        data: {
-          accType: string,
-          accRefNumber: string,
-          maskedAccNumber: string,
-          fipId: string,
-          userInfo: {}}
-      }[]}, sessionId?: string): any {
+      type: string,
+      data: {
+        accType: string,
+        accRefNumber: string,
+        maskedAccNumber: string,
+        fipId: string,
+        userInfo: {}
+      }
+    }[]
+  }, sessionId?: string): any {
     try {
       const sessionid = sessionId || sessionStorage.getItem('sessionId');
       if (!sessionid || !body) { throw new Error('Session Id is required'); }
@@ -817,14 +829,14 @@ export class MyLibService {
       return of(error);
     }
   }
-// identifierGenerateOTP
-// identifierVerifyOTP
-/**
-   * OTP Generation without action Type
-   * @param sessionId
-   * @param body
-   */
-  identifierGenerateOTP(body: { identifierValue:string,identifierType:string }, sessionId?: string): any {
+  // identifierGenerateOTP
+  // identifierVerifyOTP
+  /**
+     * OTP Generation without action Type
+     * @param sessionId
+     * @param body
+     */
+  identifierGenerateOTP(body: { identifierValue: string, identifierType: string }, sessionId?: string): any {
     try {
       const sessionid = sessionId || sessionStorage.getItem('sessionId');
       if (!sessionid || !body) { throw new Error('Session Id is required'); }
@@ -833,7 +845,7 @@ export class MyLibService {
           'Content-Type': 'application/json',
           sessionId: sessionid
         }),
-        body: body ? {actionType:'VERIFY_IDENTIFIER', ...body } : null
+        body: body ? { actionType: 'VERIFY_IDENTIFIER', ...body } : null
       };
       return this.http
         .request('POST', this.url + APINAME.OTPSend, data)
@@ -848,17 +860,17 @@ export class MyLibService {
     }
   }
 
- /**
-   * OTP Validation
-   * @param body
-   * @param sessionId
-   */
-  identifierVerifyOTP(body: { 
-    actionType:String,
-    OTP:String,
-    identifierValue:String,
-    identifierType:string
-    }, sessionId?: string): any {
+  /**
+    * OTP Validation
+    * @param body
+    * @param sessionId
+    */
+  identifierVerifyOTP(body: {
+    actionType: String,
+    OTP: String,
+    identifierValue: String,
+    identifierType: string
+  }, sessionId?: string): any {
     try {
       const sessionid = sessionId || sessionStorage.getItem('sessionId');
       if (!sessionid || !body) { throw new Error('Session Id is required'); }
@@ -867,7 +879,7 @@ export class MyLibService {
           'Content-Type': 'application/json',
           sessionId: sessionid
         }),
-        body: body ? {actionType:'VERIFY_IDENTIFIER', ...body } : null
+        body: body ? { actionType: 'VERIFY_IDENTIFIER', ...body } : null
       };
       return this.http
         .request('POST', this.url + APINAME.otpValidate, data)
@@ -899,7 +911,7 @@ export class MyLibService {
           client_id: clientId,
           client_secret: clientSecret,
           appIdentifier: `${appIdentifier}`,
-          
+
         }),
         body: body ? body : null
       };
@@ -915,14 +927,14 @@ export class MyLibService {
       return of(error);
     }
 
-    }
+  }
 
-    /**
-   * Account discovery API
-   * @param body
-   * @param sessionId
-   */
-  discoverAccountFIP(identifier: { category: string, type: string, value: string }[],fipId?: string, sessionId?: string) {
+  /**
+ * Account discovery API
+ * @param body
+ * @param sessionId
+ */
+  discoverAccountFIP(identifier: { category: string, type: string, value: string }[], fipId?: string, sessionId?: string) {
     try {
       if (!identifier) { throw new Error('Identifier is required'); }
       const sessionID = sessionId || sessionStorage.getItem('sessionId');
